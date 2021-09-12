@@ -1,0 +1,380 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[amsbook]{}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{}
+\usepackage[hebibliography]{}
+\usepackage{draftwatermark}
+\SetWatermarkText{Draft}
+\SetWatermarkScale{5}
+\SetWatermarkColor[gray]{0.95}
+\usepackage{physics}{}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+
+\title{Building a Space}
+\author{Iurie Nistor}
+\date{September 2021}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\section{Foreword}
+
+\section{Notations}
+
+$L_n$ --  linear space of dimension $n$
+\newline
+$E_n$ --  affine space of dimension $n$
+\newline
+$R_n$ --  euclidean space of dimension $n$
+\newline
+$\{a, b, c, d...\}$ -- a set with elements $a, b, c, d, ...$
+
+\chapter{Linear spaces}
+
+In order to build a space we will start with the most abstract thing we can imagine - a \emph{set}, and let's call it $L$. The elements of the set $L$ can be of any nature: numbers, vectors, functions, anything, and named with letters $\{\textbf{a}, \textbf{b}, \textbf{c}, \textbf{d}...\}$. It is better we for now to try refrain from imagining them be something concrete, for example, as vectors we know from classic geometry books. Let pretend we don't know what they are, what to do with them, and how they behave.
+
+\begin{section}{Axioms of linear space}
+
+We will start now to define how the elements of the set $L$ behave, these rules are called \emph{the axioms of linear space}. Also these axioms are grouped as follows:
+
+
+I: Axioms of sum
+
+II: Axioms of multiplication to a number
+
+Thus, we will define how to \emph{sum} the elements and how to \emph{multiply} them to real numbers.
+
+Another concept related to the elements of $L$ is \emph{identity}. Thus, the elements of $L$ are \emph{identical} if they belong to the same class, i.e they have the same properties. Thus, we say that two elements $\textbf{a}$ and $\textbf{b}$ are identical (or equal) if they belong to $L$, have the same properties, and we note this $\textbf{a} = \textbf{b}$.
+
+\begin{subsection}{I: Axioms of sum}
+
+\begin{newtheorem}{axiomI}{º}
+\begin{axiomI} For every element $\textbf{a}$ and $\textbf{b}$ from $L$ the sum $\textbf{c} = \textbf{a} + \textbf{b}$ is defined in a such way that $\textbf{c}$ also belongs to $L$.
+\end{axiomI}
+
+\begin{axiomI}The sum of elements is commutative, i.e. for every $\textbf{a}$ and $\textbf{b}$ from $L$
+$\textbf{a} + \textbf{b} = \textbf{b} + \textbf{a}$.
+\end{axiomI}
+
+\begin{axiomI} The sum of elements are associative, i.e. for every $\textbf{a}$, $\textbf{b}$ and $\textbf{c}$ from $L$
+$(\textbf{a} + \textbf{b}) + \textbf{c} = \textbf{a} + (\textbf{b} + \textbf{c})$.
+\end{axiomI}
+
+\begin{axiomI} There exists an element {$\textbf{0}$} in $L$ such that for every $a$ from $L$  $\textbf{a} + \textbf{0} = \textbf{a}$.
+\end{axiomI}
+
+\begin{axiomI} For every element $\textbf{a}$ from $L$ there exists an element {$-\textbf{a}$} in $L$ such that $\textbf{a} + (-\textbf{a}) = \textbf{0}$.
+\end{axiomI}
+
+\end{newtheorem}
+\end{subsection}
+\begin{subsection}{II: Axioms of multiplication to a number}
+\begin{newtheorem}{axiomII}{º}
+\begin{axiomII} For every element $\textbf{a}$ from $L$ and for every real number $\alpha$ an element $\textbf{b}$ from $L$ is given as $\textbf{b} = \alpha \textbf{a}$, which is called the multiplication of $\textbf{a}$ to the number $\alpha$.
+\end{axiomII}
+
+\begin{axiomII} The multiplication of every element $\textbf{a}$ from $L$ to the number 1 is the same element \textbf{a}, i.e. $\textbf{a} \cdot 1 = \textbf{a}$.
+\end{axiomII}
+
+\begin{axiomII} The multiplication of elements of $L$ to a number is distributive relative to the sum of numbers, i.e. $(\alpha + \beta)\textbf{a} = \alpha \textbf{a} + \beta \textbf{a}$.
+\end{axiomII}
+
+\begin{axiomII}
+The multiplication of elements of $L$ to a number is distributive relative to the sum of elements, i.e. $\alpha (\textbf{a} + \textbf{b}) = {\alpha} \textbf{a} + {\alpha} \textbf{b}$.
+\end{axiomII}
+
+\begin{axiomII} The multiplication of elements of $L$ to a number is associative, i.e. $\alpha (\beta \textbf{a}) = (\alpha \beta) \textbf{a}$.
+\end{axiomII}
+\end{newtheorem}
+\end{subsection}
+
+Introduction of these axioms, i.e. rules upon the elements adds the first glimpses of our space we want to build, i.e. these first glimpses will transform the abstract set $L$ into a \emph{linear space}. Thus, here is the definition:
+
+\emph{A set $L$ the elements of which follows the axioms of group I and II is called linear space $L$.}
+
+A linear space, also, is also called \emph{vector space}, and the elements of $L$ are called \emph{vectors}. Due to this, starting from now, we will call the elements of the linear space $L$ vectors. Let's mention that even if the we them vectors they not necessarily represent vectors as we know from classic geometry.
+
+If the axioms of multiplication define the multiplication of vectors with real numbers, than $L$ is called \emph{real linear space}. If the multiplication of vectors are with complex numbers than $L$ will be \emph{complex linear space}.
+\end{section}
+
+\section{Examples of linear spaces}
+
+\subsection{Vectors on a two dimensional infinite plane}
+
+Imagine all vectors (those defined like in the classic geometry books) which can be drawn on a infinite plane. Let's see if the set of these vectors $V$ forms a linear space. In order to verify this, there is a need two show that all vectors of the plane $P$ follow the axioms of the linear space.
+
+Let's verify the fist axiom from the group I and II. If we draw on the plane $P$ two vectors $\textbf{a}$ and $\textbf{b}$ and sum them by using the rule of parallelogram we find another vector $\textbf{c} = \textbf{a} + \textbf{b}$ and which lies in the same plane, i.e. $c \in V$. If we draw a vector $\textbf{d}$ and multiply them to a number $\alpha$ we will find another vector $\textbf{e}$ which is collinear to $\textbf{d}$ and lies on the same plane, i.e. $\textbf{d} \in V$.
+
+The rest of the axioms can be verified the same way by using the rules for vectors from the classic geometry. Thus, all vectors from an infinite plane form a linear space.
+
+Because, for example, values from Physics like velocities, accelerations, forces and others are denoted and behave same way as vectors they form linear spaces too.
+
+\subsection{The space of real numbers}
+
+The set of all real numbers $R$ form a linear space. Indeed, for any two numbers from this set we can find the sum which is in the same set. Also, there is \textbf{0} vector which is 0, and for every number we can find its opposite number by adding the sing '-' before the number. Multiplication to a number also hods. Thus, we can see that the elements of the set $R$ forms a linear space.
+
+\subsection{The space of matrices}
+
+\subsection{Null space}
+
+\subsection{The space of functions of a single variable}
+
+Let's be there a set $F$ the elements of which are all functions of a single variable $x$. The set $F$ forms a vector space.
+
+To verify the axiom of sums (I) we take two elements $f_a(x) \in F$ and $f_b(x) \in F$ and define a new function $f_c(x) = f_a(x) + f_b(x)$. It can seen that $f_c(x)$ is also a function of a single variable $x$ and $f_c(x) \in F$. For the rest of the axioms of sum are obvious.
+
+The multiplication axioms (II) are also easy to verify. For any $f(x) \in F$ and a real number $\alpha$ we can define a new function $f_\alpha (x) = \alpha \cdot f(x)$ which $f_\alpha (x) \in F$. For the rest of the axioms of multiplication are obvious too.
+
+Note that the elements of $F(f_a(x), f_b(x), f_c(x)...)$ are called vectors too, they form a vector space but is not really intuitive to image them as vectors.
+
+Functions which form vector spaces are used as a mathematical tool in Quantum Mechanics. These kind of spaces are called Hilbert spaces\footnote{Hilbert space is actually an infinite dimensional linear space\cite{hobson}. We will see later what is a dimension of a linear space.}, the vectors of which often are noted with $\ket{a}, \ket{b}, \ket{c}...$, called ket vectors\cite{dirac} and which represent the state of a quantum system. Thus, the state of a quantum system forms a linear space and, because the axioms I are hold, than it means the the state of a quantum system can be expressed as a sum of other states\footnote{In Quantum Mechanics it is called the principle of superposition of quantum states.\cite{dirac}}.
+
+\subsection{Vectors on a finite plane}
+
+All vectors of a finite plane $P$ do not form a vector space. Indeed, we can take two vectors $\textbf{a}$ and $\textbf{b}$ from the plane in a such way that sum $\textbf{c} = \textbf{a} + \textbf{b}$ will not fit $\textbf{c}$ into to plane, i.e $\textbf{c} \notin P$. Thus, at least the first axiom of the group I doesn't hold.
+
+\subsection{Natural numbers}
+
+\section {Some corollaries to the axioms of a linear space}
+
+TEXT HERE
+
+\section{Linear combination and dependence}
+
+Because the axioms of linear space defines how we can sum elements and multiply to a real number now we can define some more complex concepts related to linear space. 
+
+Let's have a finite number of elements $\boldsymbol{a_1}, \boldsymbol{a_2}, \boldsymbol{a_3},..., \boldsymbol{a_n}$ from $L$ and any real numbers $\alpha_1, \alpha_2, \alpha_3,..., \alpha_n$. If any element $\boldsymbol{b} \in L$ is defined as
+
+\[\boldsymbol{b} = \alpha_1\boldsymbol{a_1} + \alpha_2\boldsymbol{a_2} + \alpha_3\boldsymbol{a_3} + ... + \alpha_k\boldsymbol{a_n},\]
+
+we say that $\boldsymbol{b}$ is expressed as a \emph{linear combination} of $\boldsymbol{a_1}, \boldsymbol{a_2}, \boldsymbol{a_3},..., \boldsymbol{a_k}$. If all the numbers $\alpha_1, \alpha_2, \alpha_3,..., \alpha_n$ are zero than the linear combination is called \emph{trivial linear combination}, otherwise (if at least one number is not zero) it is called \emph{non-trivial linear combination}.
+
+Any elements $\boldsymbol{a_1}, \boldsymbol{a_2}, \boldsymbol{a_3},..., \boldsymbol{a_n}$ from $L$ are \emph{linearly dependent} if there exists a non-trivial combination such that
+
+\begin{equation}
+\label{eqn:dependence}
+\alpha_1\boldsymbol{a_1} + \alpha_2\boldsymbol{a_2} + \alpha_3\boldsymbol{a_3} + ... + \alpha_n\boldsymbol{a_n} = \boldsymbol{\theta}.
+\end{equation}
+
+On the other side the elements $\boldsymbol{a_1}, \boldsymbol{a_2}, \boldsymbol{a_3},..., \boldsymbol{a_n}$ are \emph{linear independent} if \eqref{eqn:dependence} holds only for the trivial combination, i.e. only when the real numbers $\alpha_1, \alpha_2, \alpha_3,..., \alpha_n$ are all equal to zero.
+
+From these two above definitions it follows that if any set $\boldsymbol{a_1}, \boldsymbol{a_2}, \boldsymbol{a_3},..., \boldsymbol{a_n}$ from $L$ which are linear dependent there exists an element $\boldsymbol{a_k}$ from this set which can be expressed as a liner combination of the rest:
+
+\[\boldsymbol{a_k} = \frac{\alpha_1}{\alpha_k}\boldsymbol{a_1} + \frac{\alpha_2}{\alpha_k}\boldsymbol{a_2} + \frac{\alpha_3}{\alpha_k}\boldsymbol{a_3} + ... +  \frac{\alpha_{k-1}}{\alpha_k}\boldsymbol{a_{k-1}} + \frac{\alpha_{k+1}}{\alpha_k}\boldsymbol{a_{k+1}} + ... + \frac{\alpha_n}{\alpha_k}\boldsymbol{a_n} ,\]
+
+where $\alpha_k \neq 0$. Indeed, because the elements are linear depended than their combination is non-trivial, i.e. there must exist at least one element $a_k$ for which $\alpha_k$ is not null. 
+
+For any set of elements from $L$ which are linear independent, than no element from this set can be expressed as a linear combination of others.
+
+\begin{section}{The dimension and basis of the linear space}
+
+The linear space $L$ is said to be $n-dimensional$ if there exist a finite $n$ elements from $L$ which are linear independent and every other number of elements which is bigger than $n$ is linear dependent.
+
+The linear space would be an \emph{infinite dimensional linear space} if for any integer $N > 0$ we can find $N$ linear independent elements from $L$.
+
+As we can see the dimension of a linear space is not the same as how many elements are in $L$.
+
+If the elements $\boldsymbol{e_1}, \boldsymbol{e_2}, \boldsymbol{e_3}, ..., \boldsymbol{e_n}$ from $L$ are linear independent and every other element $\boldsymbol{a}$ from $L$ can be expressed as a linear combination: 
+\begin{equation}
+\label{eqn:basis}
+\boldsymbol{a} = a_1\boldsymbol{e_1} + a_2\boldsymbol{e_2} + a_3\boldsymbol{e_3} + ... + a_n\boldsymbol{e_n},
+\end{equation}
+than $\boldsymbol{e_1}, \boldsymbol{e_2}, \boldsymbol{e_3}, ..., \boldsymbol{e_n}$ is called to from a \emph{basis} in $L$.
+
+Every element which is expressed in the form of \ref{eqn:basis} is said that is expressed as a linear combination of the basis $\boldsymbol{e_1}, \boldsymbol{e_2}, \boldsymbol{e_3}, ..., \boldsymbol{e_n}$. The coefficients $a_1, a_2, a_3,..., a_n$ are called the coordinates of the element $\boldsymbol{a}$ in this basis.
+
+The basis $\boldsymbol{e_1}, \boldsymbol{e_2}, \boldsymbol{e_3}, ..., \boldsymbol{e_n}$ is not unique, there can be a lot of other set of elements which will form a basis.
+
+We should not think $\boldsymbol{e_1}, \boldsymbol{e_2}, \boldsymbol{e_3}, ..., \boldsymbol{e_n}$ as unitary geometric vectors. They might be if we consider the elements to be geometric vectors and the basis with unitary vectors like $\boldsymbol{i}, \boldsymbol{j}, \boldsymbol{k}$. For example, in the three dimensional space of geometric vectors any three vectors (not necessarily orthogonal and unitary) which are not all coplanar can form a basis, i.e. every other vectors can be expressed in this basis.
+
+Thus, in a $n$-dimensional linear space $L$ we can take any $n$ linear independent elements (if such exists) and form a basis. Also, these theorem are true:
+
+\emph{The linear space has the dimension $n$ if and only if there exists a basis of n elements.}
+
+\emph{If there exists a basis in $L$ than any element $\boldsymbol{a}$ which is not part of the basis is expressed uniquely in this basis, i.e. the coordinates of the element $\boldsymbol{a}$ in this basis are unique.}
+
+Also here we have another important theorem:
+
+\emph{The coordinates of sum of two vectors are the sum of coordinates of these vectors. If a vector is multiplied by a real number, also the coordinates of the vector are multiplied by this number.}
+
+To be more clear if we have
+
+\[\boldsymbol{a} = a_1\boldsymbol{e_1} + a_2\boldsymbol{e_2} + a_3\boldsymbol{e_3} + ... + a_n\boldsymbol{e_n},\]
+\[\boldsymbol{b} = b_1\boldsymbol{e_1} + b_2\boldsymbol{e_2} + b_3\boldsymbol{e_3} + ... + b_n\boldsymbol{e_n}\]
+
+than
+
+\[\boldsymbol{a} + \boldsymbol{b} = (a_1 + b_1)\boldsymbol{e_1} + (a_2 + b_2)\boldsymbol{e_2} + ... + (a_n + b_n)\boldsymbol{e_n},\]
+\[{\alpha}\boldsymbol{a} = ({\alpha}a_1)\boldsymbol{e_1} + ({\alpha}a_2)\boldsymbol{e_2} + ... + ({\alpha}a_n)\boldsymbol{e_n}.\]
+
+Also, it follows that all the coordinates of the null element are zero, i.e:
+
+\[\boldsymbol{\theta} = 0{\cdot}\boldsymbol{e_1} + 0{\cdot}\boldsymbol{e_2} + ... + 0{\cdot}\boldsymbol{e_n}.\]
+\end{section}
+
+\section{Isomorphism}
+
+Let's have linear spaces $L$ and $L^'$. The elements of $L$ and $L^'$ might be of the same or different nature \footnote{For example, $L(\boldsymbol{v_1}, \boldsymbol{v_2}, \boldsymbol{v_3},...)$ might be a space of vectors and $L^{'}(f_1(x), f_2(x), f_3(x) ...)$ a space of functions of a single variable.}. Also, there a bidirectional unique mapping between the elements $L$ and ${L^{'}}$, i.e. for every element $\boldsymbol{a}$ from $L$ we assign an element $\boldsymbol{a^{'}}$ from $L$ and the opposite. The mapping is done in a such way that the the sum of any two elements $\boldsymbol{a}$ and $\boldsymbol{b}$ from $L$ maps to the sum of $\boldsymbol{a^{'}}$ and $\boldsymbol{b^{'}}$ from $L^{'}$, and the multiplication of any element $\boldsymbol{a}$ from $L$ to a real number $\alpha$ maps to the multiplication of $\boldsymbol{a^{'}}$ from $L^{'}$ to the same number, i.e.
+
+\begin{equation}
+\label{eqn:isomorphism1}
+(\boldsymbol{a} + \boldsymbol{b})^{'} = \boldsymbol{a^{'}} + \boldsymbol{b^{'}},
+\end{equation}
+
+\begin{equation}
+\label{eqn:isomorphism2}
+(\alpha \cdot \boldsymbol{a})^{'} = \alpha \cdot \boldsymbol{a^{'}}.
+\end{equation}
+
+The spaces $L$ and $L^{'}$ are said to be \emph{isomorphic} if they are mapped and the mapping is done in a such way that \eqref{eqn:isomorphism1} and \eqref{eqn:isomorphism2} holds\footnote{The linear spaces must be both real or complex. If one space is real and another complex, the spaces are not isomorphic because \eqref{eqn:isomorphism2} doesn't hold.}.
+
+\begin{theorem}
+For every n all real n-dimensional linear spaces are isomorphic between each other. For every n all complex n-dimensional linear spaces are isomorphic between each other.
+\end{theorem}
+
+\begin{theorem}
+The linear space which is isomorphic to a n-dimensional linear space is n-dimensional too.
+\end{theorem}
+
+Here are also two corollaries which follows from these theorems:
+
+\begin{corollary}
+Finite dimensional linear space with different dimension are not isomorphic.
+\end{corollary}
+
+For example, the space of geometric vectors on an infinite plane is of dimension two. The linear space of vectors which are on an infinite line is of dimension one. These two linear spaces are not isomorphic.
+
+\section{Linear subspaces}
+
+Let's have a linear space $L$. Also, let's take a set of elements from $L$ and call it $\widetilde{L}$.
+
+\begin{definition}
+The set $\widetilde{L}$ of elements from $L$ is called linear subspace of $L$ if the axioms of addition and multiplication hold upon the set $\widetilde{L}$.
+\end{definition}
+
+This would mean that for every element $\boldsymbol{a}$ and $\boldsymbol{b}$ from $\widetilde{L}$ the sum $\boldsymbol{c} = \boldsymbol{a} + \boldsymbol{b}$ belongs to $\widetilde{L}$ too. The result of multiplication of an element $\boldsymbol{a}$ from $\widetilde{L}$ to a real number also belongs to $\widetilde{L}$, i.e if $\boldsymbol{b} = \alpha\cdot\boldsymbol{a}$ than $\boldsymbol{b} \in \widetilde{L}$.
+
+Following the definition:
+
+\begin{theorem}
+Every linear subspace $\widetilde{L}$ of a linear space $L$ also is a linear space.
+\end{theorem}
+
+This is true because every $\widetilde{L}$ satisfies the axioms I and II.
+
+To understand better how $\widetilde{L}$ looks like let's take the example of the geometric vectors on an infinite plane. At first glance the word "subspace" makes us to think that if we will take a finite region, for example, a circle on this plane than that would be a subspace. It is not true because all vectors that can be put on this region will not satisfy the axioms of linear space. What would be than a linear subspace? An infinite line that lies on the plane would be a linear subspace. Indeed, all vectors which can lie on this line will satisfy the axioms of linear space, and all these vectors also lie on the plane, i.e. they are a subset of linear space of vectors on the plane.
+
+Another trivial example of linear subspace will be the null element $\boldsymbol{\theta}$ of a linear space.
+
+\section{Linear transformation}
+
+\subsection{Einstein notation}
+
+Before starting the subject of linear transformation let's define some notations which are called Einstein summation convention\footnote{This kind of notation is often used in Physics. It was introduced by Albert Einstein in 1916.}. Actually these will be some examples how this kind of notation works. The reason of introduction of such notation is because we can write mathematical formulas in a more efficient way\footnote{For example, the Physics equations will look more simple and clear.}.
+
+\begin{equation}
+\label{eqn:enstein_notation1}
+\sum_{i=1}^{n} a_ib_i = a_1b_1 + a_2b_2 + ... + a_nb_n = a_ib_i
+\end{equation}
+
+\begin{equation}
+\label{eqn:enstein_notation2}
+\sum_{k=1}^{n} a_{ik}b_k = a_{i1}b_1 + a_{i2}b_2 + .. + a_{in}b_n = a_{ik}b_k
+\end{equation}
+
+\chapter{Affine space}
+
+\section{Axioms of affine space}
+
+\section{Affine coordinates}
+
+\section{The volume of object in affine space}
+
+\chapter{Tensors}
+
+\chapter{Linear and bilinear forms}
+
+\section{Linear forms}
+
+\section{Bilinear forms}
+
+\section{Quadratic froms}
+
+\section{Sylvester's law of inertia}
+
+\chapter{Tensors}
+
+\chapter{Groups}
+
+\chapter{Euclidean space}
+
+\section{Axioms of euclidean space}
+
+\section{Inner product}
+
+\section{Norm of a vector}
+
+\section{Ortonormal basis}
+
+\section{The metric tensor}
+
+\section{Metrical isophormism}
+
+\section{Examples of euclidean space}
+
+\section{The volume of object in euclidean spaces}
+
+\section{Tensors in euclidean space}
+
+\section{The group of euclidean rotation}
+
+\chapter{Minkowski space}
+
+\section{Spheres}
+
+\cite{rosenfeld_noneucldean}, p.524
+
+\section{Angles between vectors}
+
+\cite{rosenfeld_noneucldean}, p.525
+
+\section{Spacetime}
+
+\begin{thebibliography}{}
+\bibitem{efimov}
+Efimov, N.V., Rozendorn, E. R. \emph{Linear Algebra and Multi-Dimensional Geometry}, Moscow: Nauka, 1970.
+
+\bibitem{rashevsky}
+Rashevsky, P.K., \emph{Riemannian Geometry and Tensor Analysis.}, 3rd ed., Moscow: Nauka, 1967.
+   
+\bibitem{korush}
+Kurosh, A.G., \emph{Higher Algerba}, 10th ed., Moscow, Nauka, 1971. 
+
+\bibitem{rosenfeld_noneucldean}
+   Rosenfeld, B.A.,  \emph{Non-euclidean Spaces}, 3rd ed., Moscow: Lenand, 2020.
+
+\bibitem{rosenfeld_ndim}
+Rosenfeld, B.A.,  \emph{Multi-dimensional Spaces}, 3rd ed., Moscow: Lenand, 2020.
+
+\bibitem{hobson}
+Riley, K.F., Hobson, M.P., Bence, S.J., \emph{Mathematical Methods for Physics and Engineering}, 3rd ed., Cambridge: Cambridge University Press, 2006.
+
+\bibitem{landau_field}
+Landau, L.D. , Lifshitz, E.M. \emph{Field Theory}, Vol. 2, 9th ed., Moscow, Fizmatlit, 2020.
+
+\bibitem{dirac}
+Dirac, P.A.M, \emph{The Principles of Quantum Mechanics}, 3rd ed., Oxford, Claredon Press, 1948.
+
+
+\end{thebibliography}
+
+\end{document}
