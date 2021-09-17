@@ -271,7 +271,7 @@ Every linear subspace $\widetilde{L}$ of a linear space $L$ also is a linear spa
 
 This is true because every $\widetilde{L}$ satisfies the axioms I and II.
 
-To understand better how $\widetilde{L}$ looks like let's take the example of the geometric vectors on an infinite plane. At first glance the word "subspace" makes us to think that if we will take a finite region, for example, a circle on this plane than that would be a subspace. It is not true because all vectors that can be put on this region will not satisfy the axioms of linear space. What would be than a linear subspace? An infinite line that lies on the plane would be a linear subspace. Indeed, all vectors which can lie on this line will satisfy the axioms of linear space, and all these vectors also lie on the plane, i.e. they are a subset of linear space of vectors on the plane.
+To understand better how $\widetilde{L}$ looks like let's take the example of the geometric vectors on an infinite plane. At first glance the word "subspace" makes us to think that if we will take a finite region, for example, a circle on this plane than that would be a subspace. It is not true because all vectors that can be put on this region will not satisfy the axioms of linear space. What would be than a linear subspace? An infinite line that lies on the plane would be a linear space. Indeed, all vectors which can lie on this line will satisfy the axioms of linear space, and all these vectors also lie on the plane, i.e. they are a subset of linear space of vectors on the plane.
 
 Another trivial example of linear subspace will be the null element $\boldsymbol{\theta}$ of a linear space.
 
@@ -279,19 +279,115 @@ Another trivial example of linear subspace will be the null element $\boldsymbol
 
 \subsection{Einstein notation}
 
-Before starting the subject of linear transformation let's define some notations which are called Einstein summation convention\footnote{This kind of notation is often used in Physics. It was introduced by Albert Einstein in 1916.}. Actually these will be some examples how this kind of notation works. The reason of introduction of such notation is because we can write mathematical formulas in a more efficient way\footnote{For example, the Physics equations will look more simple and clear.}.
+Before starting the subject of linear transformation let's define some notations which are called Einstein summation convention\footnote{This kind of notation is often used in Physics. It was introduced by Albert Einstein in 1916.}. The reason of introduction of such notation is because we can write mathematical formulas in a more efficient way\footnote{For example, the Physics equations will look more simple and clear.}. Let's write some examples by defing the notation.
 
 \begin{equation}
 \label{eqn:enstein_notation1}
-\sum_{i=1}^{n} a_ib_i = a_1b_1 + a_2b_2 + ... + a_nb_n = a_ib_i
+a_kb_k := \sum_{k=1}^{n} a_kb_k = a_1b_1 + a_2b_2 + ... + a_nb_n,
 \end{equation}
 
 \begin{equation}
 \label{eqn:enstein_notation2}
-\sum_{k=1}^{n} a_{ik}b_k = a_{i1}b_1 + a_{i2}b_2 + .. + a_{in}b_n = a_{ik}b_k
+a_{ik}b_k := \sum_{k=1}^{n} a_{ik}b_k = a_{i1}b_1 + a_{i2}b_2 + .. + a_{in}b_n,
 \end{equation}
 
+\begin{equation}
+\label{eqn:enstein_notation3}
+a_{ij}b_j := \sum_{k=1}^{n} a_{ij}b_j = a_{i1}b_1 + a_{i2}b_2 + .. + a_{in}b_n,
+\end{equation}
+
+\begin{equation}
+\label{eqn:enstein_notation4}
+a_{ij}b_{jk}c_k := \sum_{j=1}^{m}\sum_{k=1}^{n} a_{ij}b_{jk}c_k.
+\end{equation}
+
+Einstein notation says that if the same index is
+found in different terms, than the summation
+is done over that index which is called the \emph{dummy}
+index. Thus, instead of writing sums like $\sum_{k=1}^{n} a_kb_k$ we use a short notation $a_kb_k$ instead. Thus, in \eqref{eqn:enstein_notation1} $k$ is the dummy index over which the summation is done and because is found in both terms $a$ and $b$. In \eqref{eqn:enstein_notation2} the dummy index is $j$ over which the summation is done and 
+because is found in both terms. In \eqref{eqn:enstein_notation3} we have two dummy indexes $j$ and $k$.
+
+The name of the dummy index can be changed the result will be unchanged. For example
+
+\[a_{ij}b_j = a_{iq}b_q,\]
+
+because we in both cases we will have to sum starting from $1$ to $n$. The only think this kind of notation doesn't tell us is from which number to start and end the sum. Thus, using this kind of notation there should be an agreement upon this.
+
+\subsection{The basis and coordinates transformation}
+
+Let bet there a linear space $L_n$. The lower index means that it $n$-dimensional. The basis in this space will be $e_1, e_2, ..., e_n$. Because there may be a lot of other sets of elements from $L_n$ that can from a basis we are interested if we change the basis how the coordinates of an element from $L_n$ are changed.
+
+First of all let express the new basis vectors in terms of old basis:
+
+\begin{equation}
+\label{eqn:basis_transfromation}
+\begin{split} 
+\boldsymbol{e^{'}_1} &= P_{11}\boldsymbol{e_1} + P_{12}\boldsymbol{e_2} + ... + P_{1n}\boldsymbol{e_n} \\
+\boldsymbol{e^{'}_2} &= P_{21}\boldsymbol{e_1} + P_{22}\boldsymbol{e_2} + ... + P_{2n}\boldsymbol{e_n} \\
+ &\;\;\vdots \\
+\boldsymbol{e^{'}_n} &= P_{n1}\boldsymbol{e_1} + P_{n2}\boldsymbol{e_2} + ... + P_{nn}\boldsymbol{e_n}
+\end{split}
+\end{equation}
+
+Using the Einstein notation we now can write this transformation as:
+
+\begin{equation}
+\label{eqn:basis_transfromation1}
+\boldsymbol{e^{'}_i} = P_{ij}\boldsymbol{e_j}.
+\end{equation}
+
+The equation \eqref{eqn:basis_transfromation1} actually shows how basis vectors are changed if the basis is changed. The the coefficients $P_{ij}$ form a matrix which is called the transformation matrix of basis vectors. On the other hand knowing a basis and if we take any matrix $P$ in a such way that 
+
+\[Det P \neq 0\],
+
+than using \eqref{eqn:basis_transfromation1} we can find a new basis in $L_n$.
+
+Transformation \eqref{eqn:basis_transfromation1} can be written in matrix notation of we choose to note the set of basis vectors a on column matrix:
+
+\begin{equation}
+\label{eqn:basis_transfromation2}
+\boldsymbol{E^{'}} = P\boldsymbol{E}.
+\end{equation}
+
+
+Now let's see how the coordinates of a vector is are changed if we changed the basis. Let there be vector $\boldsymbol{a} \in L_n$. Because the vectors $\boldsymbol{a}$ itself doesn't change if the basis is changed than we can express this vectors in old and new basis as follows:
+
+\begin{align*}
+\boldsymbol{a} &= a_i\boldsymbol{e_i} \\ \boldsymbol{a} &= a^{'}_i\boldsymbol{e{'}_i}.
+\end{align*}
+
+In the second expression using \eqref{eqn:basis_transfromation1} instead of $\boldsymbol{e{'}_i}$ we can write:
+
+\[\boldsymbol{a} &= a^{'}_i(P_{ij}\boldsymbol{e_j}) = a^{'}_i(P_{ji}\boldsymbol{e_i}) = (a^{'}_{i}P_{ji})\boldsymbol{e_i} \]\footnote{Here we sum over dummy index $i$ and $j$ because they are met in different terms, i.e. $\sum_{i=1}^{n} \sum_{j=1}^{n}a^{'}_iP_{ij}\boldsymbol{e_j}$ }.
+
+Comparing this with the first expression we find the expression if old coordinates of a vectors in the of new coordinates:
+
+\begin{equation}
+\label{eqn:transfromation_coordinates}
+\boldsymbol{a_i} = P_{ji}\boldsymbol{a^{'}_j}.
+\end{equation}
+
+From \eqref{eqn:transfromation_coordinates} we can see the the transformation matrix for coordinates is the transposed $P^T$ matrix $P$ of \eqref{eqn:basis_transfromation1}. If we not the collection of coordinates as one column matrix, we can write \eqref{eqn:transfromation_coordinates} by using matrix notation:
+
+\begin{equation}
+\label{eqn:transfromation_matrix1}
+\boldsymbol{A} = P^T\boldsymbol{A^'}.
+\end{equation}
+
+If we want to express the new coordinates in terms of old we can write:
+
+\begin{equation}
+\label{eqn:transfromation_matrix2}
+\boldsymbol{A{^'}} = (P^T)^{-1} \boldsymbol{A}.
+\end{equation}
+
+Comparing \eqref{eqn:basis_transfromation2} we can see the the coordinates of a vector from $L_n$ transforms using a different transformation matrix when we move from an old basis $\boldsymbol{E}$ to a new one $\boldsymbol{E^'}$. This matrix can be obtained from the $P$ by taking the inverse of the transpose of $P$.
+
+If we are given the matrix $(P^T)^{-1}$ we can find $P$ and then find the new basis by using \eqref{eqn:basis_transfromation2}. i.e. if we have the transformation law for vector coordinates we can find the transformation law for the basis.
+
 \chapter{Affine space}
+
+
 
 \section{Axioms of affine space}
 
@@ -378,3 +474,4 @@ Dirac, P.A.M, \emph{The Principles of Quantum Mechanics}, 3rd ed., Oxford, Clare
 \end{thebibliography}
 
 \end{document}
+
