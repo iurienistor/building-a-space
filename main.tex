@@ -4,6 +4,7 @@
 \usepackage[T2A]{fontenc}
 \usepackage[russian]{}
 \usepackage[hebibliography]{}
+\usepackage{amssymb}
 \usepackage{draftwatermark}
 \SetWatermarkText{Draft}
 \SetWatermarkScale{5}
@@ -13,6 +14,7 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
 \newtheorem{corollary}{Corollary}
+\newtheorem{axiom}{º}
 
 \title{Building a Space}
 \author{Iurie Nistor}
@@ -57,44 +59,40 @@ Another concept related to the elements of $L$ is \emph{identity}. Thus, the ele
 
 \begin{subsection}{I: Axioms of sum}
 
-\begin{newtheorem}{axiomI}{º}
-\begin{axiomI} For every element $\textbf{a}$ and $\textbf{b}$ from $L$ the sum $\textbf{c} = \textbf{a} + \textbf{b}$ is defined in a such way that $\textbf{c}$ also belongs to $L$.
-\end{axiomI}
+\begin{axiom} For every element $\textbf{a}$ and $\textbf{b}$ from $L$ the sum $\textbf{c} = \textbf{a} + \textbf{b}$ is defined in a such way that $\textbf{c}$ also belongs to $L$.
+\end{axiom}
 
-\begin{axiomI}The sum of elements is commutative, i.e. for every $\textbf{a}$ and $\textbf{b}$ from $L$
+\begin{axiom}The sum of elements is commutative, i.e. for every $\textbf{a}$ and $\textbf{b}$ from $L$
 $\textbf{a} + \textbf{b} = \textbf{b} + \textbf{a}$.
-\end{axiomI}
+\end{axiom}
 
-\begin{axiomI} The sum of elements are associative, i.e. for every $\textbf{a}$, $\textbf{b}$ and $\textbf{c}$ from $L$
+\begin{axiom} The sum of elements are associative, i.e. for every $\textbf{a}$, $\textbf{b}$ and $\textbf{c}$ from $L$
 $(\textbf{a} + \textbf{b}) + \textbf{c} = \textbf{a} + (\textbf{b} + \textbf{c})$.
-\end{axiomI}
+\end{axiom}
 
-\begin{axiomI} There exists an element {$\textbf{0}$} in $L$ such that for every $a$ from $L$  $\textbf{a} + \textbf{0} = \textbf{a}$.
-\end{axiomI}
+\begin{axiom} There exists an element {$\textbf{0}$} in $L$ such that for every $a$ from $L$  $\textbf{a} + \textbf{0} = \textbf{a}$.
+\end{axiom}
 
-\begin{axiomI} For every element $\textbf{a}$ from $L$ there exists an element {$-\textbf{a}$} in $L$ such that $\textbf{a} + (-\textbf{a}) = \textbf{0}$.
-\end{axiomI}
+\begin{axiom} For every element $\textbf{a}$ from $L$ there exists an element {$-\textbf{a}$} in $L$ such that $\textbf{a} + (-\textbf{a}) = \textbf{0}$.
+\end{axiom}
 
-\end{newtheorem}
 \end{subsection}
 \begin{subsection}{II: Axioms of multiplication to a number}
-\begin{newtheorem}{axiomII}{º}
-\begin{axiomII} For every element $\textbf{a}$ from $L$ and for every real number $\alpha$ an element $\textbf{b}$ from $L$ is given as $\textbf{b} = \alpha \textbf{a}$, which is called the multiplication of $\textbf{a}$ to the number $\alpha$.
-\end{axiomII}
+\begin{axiom} For every element $\textbf{a}$ from $L$ and for every real number $\alpha$ an element $\textbf{b}$ from $L$ is given as $\textbf{b} = \alpha \textbf{a}$, which is called the multiplication of $\textbf{a}$ to the number $\alpha$.
+\end{axiom}
 
-\begin{axiomII} The multiplication of every element $\textbf{a}$ from $L$ to the number 1 is the same element \textbf{a}, i.e. $\textbf{a} \cdot 1 = \textbf{a}$.
-\end{axiomII}
+\begin{axiom} The multiplication of every element $\textbf{a}$ from $L$ to the number 1 is the same element \textbf{a}, i.e. $\textbf{a} \cdot 1 = \textbf{a}$.
+\end{axiom}
 
-\begin{axiomII} The multiplication of elements of $L$ to a number is distributive relative to the sum of numbers, i.e. $(\alpha + \beta)\textbf{a} = \alpha \textbf{a} + \beta \textbf{a}$.
-\end{axiomII}
+\begin{axiom} The multiplication of elements of $L$ to a number is distributive relative to the sum of numbers, i.e. $(\alpha + \beta)\textbf{a} = \alpha \textbf{a} + \beta \textbf{a}$.
+\end{axiom}
 
-\begin{axiomII}
+\begin{axiom}
 The multiplication of elements of $L$ to a number is distributive relative to the sum of elements, i.e. $\alpha (\textbf{a} + \textbf{b}) = {\alpha} \textbf{a} + {\alpha} \textbf{b}$.
-\end{axiomII}
+\end{axiom}
 
-\begin{axiomII} The multiplication of elements of $L$ to a number is associative, i.e. $\alpha (\beta \textbf{a}) = (\alpha \beta) \textbf{a}$.
-\end{axiomII}
-\end{newtheorem}
+\begin{axiom} The multiplication of elements of $L$ to a number is associative, i.e. $\alpha (\beta \textbf{a}) = (\alpha \beta) \textbf{a}$.
+\end{axiom}
 \end{subsection}
 
 Introduction of these axioms, i.e. rules upon the elements adds the first glimpses of our space we want to build, i.e. these first glimpses will transform the abstract set $L$ into a \emph{linear space}. Thus, here is the definition:
@@ -364,34 +362,161 @@ Comparing this with the first expression we find the expression if old coordinat
 
 \begin{equation}
 \label{eqn:transfromation_coordinates}
-\boldsymbol{a_i} = P_{ji}\boldsymbol{a^{'}_j}.
+a_i = P_{ji}a^{'}_j.
 \end{equation}
 
 From \eqref{eqn:transfromation_coordinates} we can see the the transformation matrix for coordinates is the transposed $P^T$ matrix $P$ of \eqref{eqn:basis_transfromation1}. If we not the collection of coordinates as one column matrix, we can write \eqref{eqn:transfromation_coordinates} by using matrix notation:
 
 \begin{equation}
 \label{eqn:transfromation_matrix1}
-\boldsymbol{A} = P^T\boldsymbol{A^'}.
+A = P^{T}A^{'}.
 \end{equation}
 
 If we want to express the new coordinates in terms of old we can write:
 
 \begin{equation}
 \label{eqn:transfromation_matrix2}
-\boldsymbol{A{^'}} = (P^T)^{-1} \boldsymbol{A}.
+A^{'} = (P^{T})^{-1}A.
 \end{equation}
 
-Comparing \eqref{eqn:basis_transfromation2} we can see the the coordinates of a vector from $L_n$ transforms using a different transformation matrix when we move from an old basis $\boldsymbol{E}$ to a new one $\boldsymbol{E^'}$. This matrix can be obtained from the $P$ by taking the inverse of the transpose of $P$.
+If $(P^T)^{-1}$ is noted as $Q$ than
+
+\begin{equation}
+\label{eqn:transfromation_matrix3}
+A^{'} = QA.
+\end{equation}
+
+Or using coordinates
+
+\begin{equation}
+\label{eqn:transfromation_coordinates1}
+a{'}_i = Q_{ij}a_j.
+\end{equation}
+
+Comparing \eqref{eqn:basis_transfromation2} we can see the the coordinates of a vector from $L_n$ transforms using a different transformation matrix $(P^T)^{-1}$ when we move from an old basis $\boldsymbol{E}$ to a new one $\boldsymbol{E^'}$. This matrix can be obtained from the $P$ by taking the inverse of the transpose. Also, $det ((P^T)^{-1}) \neq 0$.
 
 If we are given the matrix $(P^T)^{-1}$ we can find $P$ and then find the new basis by using \eqref{eqn:basis_transfromation2}. i.e. if we have the transformation law for vector coordinates we can find the transformation law for the basis.
 
 \chapter{Affine space}
 
+\section{The definition of affine space}
+Now another step is taken and add more to the construction of the space,
+i.e. to its geometry. For example, if only a subset of vectors from the linear space
+is taken than with it we cannot define objects. There is a need for something more.
+Beside the linear space $L$ there is given another set $\mathbb{A}$ the elements of which are called \emph{points} and can be of any nature. The points of this set be noted as A, B, C.. etc.
 
+The \emph{affine space} is the set $\mathbb{A}$ of points for which the mapping of points to vectors from the linear space $L$ are stated by the following axioms (grouped as III):
 
-\section{Axioms of affine space}
+\begin{axiom}
+For every two points A and B from $\mathbb{A}$ we map a vector \boldsymbol{a} from L as follows:
+
+\[\overline{AB} = \boldsymbol{a}.\]
+
+If order of the points are taken as \overline{BA}, than
+
+\[\overline{BA} = -\boldsymbol{a}.\]
+\end{axiom}
+
+\begin{axiom}
+For every point $A \in \mathbb{A}$ and every vector $\boldsymbol{a} \in L$ an unique point $B \in \mathbb{A}$ is found such that
+
+\[\overline{AB}\ = \boldsymbol{a}.\]
+
+\end{axiom}
+
+\begin{axiom}
+If for any points A, B, C from $\mathbb{A}$ is mapped $\overline{AB} = \boldsymbol{a}$, $\overline{BC} = \boldsymbol{b}$ than $\overline{AC}$ will map to $\boldsymbol{a} + \boldsymbol{b}$, i.e.  $\overline{AC} = \boldsymbol{a} + \boldsymbol{b}$.
+\end{axiom}
+
+The dimension of the affine space is the dimension of its linear space $Ln$. The affine space is real or complex if the linear space $L$ is real or complex.
 
 \section{Affine coordinates}
+
+Let's have an affine space $\mathbb{A}$ of dimension $n$. Let's take point $O \in \mathbb{A}$ which will be called \emph{origin of affine coordinates}. Also, in the corresponding linear space $L$ a basis $\{\boldsymbol{e_1}, \boldsymbol{e_1}, ..., \boldsymbol{e_n}\}$ is taken. If another point $P \in \mathbb{A}$ is taken than $\overline{OP}$ will correspond to vector from $L_n$.
+If we expand this vector $\overline{OP}$ in the basis than:
+
+\begin{equation}
+\overline{OP} = x_1\boldsymbol{e_1} + x_2\boldsymbol{e_2} + ... + x_n\boldsymbol{e_n} = x_i\boldsymbol{e_i}.
+\end{equation}
+
+The coefficients $x_1, x_2, ..., x_n$ are called the \emph{affine coordinates} of the point $P$ relative to the affine origin $O$. Thus, the affine system of coordinates always is defined by the chosen point $O$ and the basis $\{\boldsymbol{e_1}, \boldsymbol{e_1}, ..., \boldsymbol{e_n}\}$. Let's note this system as $(O, \boldsymbol{e_1}, \boldsymbol{e_1}, ..., \boldsymbol{e_n})$.
+
+\section{Transformation of affine coordinates}
+
+Let's have two points A and B with coordinates ${a_1, a_2, ..., a_n}$ and ${b_1, b_2, ..., b_n}$ than we are interested what will be the coordinates of the vector $\overline{AB}$ expressed as coordinates of the points $A$ and $B$. We can write the following:
+
+\[\overline{AB} = \overline{OB} - \overline{OA} = b_i\boldsymbol{e_i} - a_i\boldsymbol{e_i} = (b_i - a_i)\boldsymbol{e_i}. \] 
+
+Let not see how the coordinates of a point $A$ changes if we move the origin $O$ to another point $O_1$. The coordinates of the point $O_1$ relative old origin will be ${o_1, o_2, ..., o_n}$. The coordinates of the point $A$ relative the origin $O$ will be ${a_1, a_2, ..., a_n}$. Let's find the coordinates ${a{^'}_1, a{^'}_2, ..., a{^'}_n}$ of the point $A$ relative to the new origin $O_1$. First we write the vector relation:
+
+\[\overline{OA} = \overline{OO_1} + \overline{O_1A}\]
+
+Now let's write this in term of coordinates:
+
+\begin{align}
+a_i\boldsymbol{e_i} = o_i\boldsymbol{e_i} + a^{'}_i\boldsymbol{e_i} = (o_i + a^{'}_i)\boldsymbol{e_i}.\label{affine_transfrom}
+\end{align}
+
+Than we obtain:
+
+\begin{align}
+a_i &= o_i + a^{'}_i \label{affine_origin_move} \\
+a^{'}_i &= a_i - o_i. \label{affine_origin_move1}
+\end{align}
+
+Suppose that we move from one coordinates system $(O, \boldsymbol{e_1}, \boldsymbol{e_1}, ..., \boldsymbol{e_n})$ to another $(O_1, \boldsymbol{e^{'}_1}, \boldsymbol{e^{'}_1}, ..., \boldsymbol{e^{'}_n})$, i.e. we change not only the origin but also the basis.
+
+Again lets write the vector relation which doesn't depend of the affine coordnates system:
+
+\[\overline{OA} = \overline{OO_1} + \overline{O_1A}\]
+
+Now we expand the vectors $\overline{OA}$ and $\overline{OO_1}$ in the old system but $\overline{O_1A}$ in the new system. The relation will hold too because the vectors are not changed. Thus we obtain something similar to \eqref{affine_transfrom}:
+
+\begin{align}
+a_i\boldsymbol{e_i} = o_i\boldsymbol{e_i} + a^{'}_i\boldsymbol{e^{'}_i} \label{affine_transfrom1}.
+\end{align}
+
+
+Using the \eqref{eqn:basis_transfromation1} instead of $\boldsymbol{e^{'}_i}$ in \eqref{affine_transfrom1} we can write:
+
+\begin{align}
+a_i\boldsymbol{e_i} &= a^{'}_{i}P{ij}\boldsymbol{e_j} + o_i\boldsymbol{e_i} = P{ji}a^{'}_{i}\boldsymbol{e_i} + o_i\boldsymbol{e_i} \label{affine_transfrom2}.\\
+a_i &= Pjia^{'}_i + o_j. \label{affine_transfromation1}
+\end{align}
+
+Now let's write \eqref{affine_transfromation1} in the matrix from:
+
+\begin{align}
+A &= P^{T}A^{'} + O \\
+\end{align}
+
+From the matrix equation we can find matrix $A^'$:
+
+\begin{align*}
+A^{'} = (P^T)^{-1}A - (P^T)^{-1}O = QA - QO.
+\end{align*}
+
+In index notation this will be:
+
+\begin{align}
+a^{'}_i = Q_{ij}a_j - Q_{ij}o_j \label{general_affine_tr}
+\end{align}
+
+If the basis is not changed and only the origin $O$, it means that the matrix Q is unitary, thus,
+
+\[a^{'}_i = I_{ij}a_j - I_{ij}o_j = a_i - o_i.\]
+
+Thus, we arrived to \eqref{affine_origin_move1}.
+
+If the basis is changed and the origin is the same, than in \eqref{general_affine_tr} all coefficients $o_j$ are zero than
+
+\[a^{'}_i = Q_{ij}a_j\],
+
+thus, we arrived to \eqref{eqn:transfromation_coordinates1}.
+
+\section{Objects in affine space}
+
+From our experience we know that in our real space we have objects, in classic geometry they are called geometric object. It is natural for as to ask since we are talking about a space what are the objects in this space? How do they look like? Because in the affine space we added a set of points beside the linear vector space $L$, it is possible know to define what would be a object in affine space. In general, an object D in the affine space would consist of a set of points $D$ from $\mathbb{A}$.
 
 \section{The volume of object in affine space}
 
