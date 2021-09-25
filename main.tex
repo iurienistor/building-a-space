@@ -25,6 +25,9 @@
 \maketitle
 
 \newpage
+\emph{This work is under CC0 1.0 Universal https://creativecommons.org/publicdomain/zero/1.0/)}
+
+\emph{To the extent possible under law, Iurie Nistor has waived all copyright and related or neighboring rights to Building a Space.}
 
 \tableofcontents
 
@@ -347,7 +350,6 @@ Transformation \eqref{eqn:basis_transfromation1} can be written in matrix notati
 \boldsymbol{E^{'}} = P\boldsymbol{E}.
 \end{equation}
 
-
 Now let's see how the coordinates of a vector is are changed if we changed the basis. Let there be vector $\boldsymbol{a} \in L_n$. Because the vectors $\boldsymbol{a}$ itself doesn't change if the basis is changed than we can express this vectors in old and new basis as follows:
 
 \begin{align*}
@@ -520,17 +522,252 @@ From our experience we know that in our real space we have objects, in classic g
 
 \section{The volume of object in affine space}
 
-\chapter{Tensors}
-
 \chapter{Linear and bilinear forms}
 
-\section{Linear forms}
+\section{Linear form}
 
-\section{Bilinear forms}
+Let's have a linear space $L$. For every vectors $\boldsymbol{a} \in L$ we associate a real number. In this way we are defining a scalar function of vector argument $f(\boldsymbol{a})$ over the space $L$. This function will be called $linear$ if it satisfies the following relations:
+
+\begin{align}
+f(\boldsymbol{a} + \boldsymbol{b}) &= f(\boldsymbol{a}) + f(\boldsymbol{b}) \textnormal{ for every } \boldsymbol{a} \in L \textnormal{ and } \boldsymbol{b} \in L\textnormal{,} \label{linearfunction_1} \\
+f(\alpha\boldsymbol{a}) &= \alpha f(\boldsymbol{a}) \textnormal{ for every vector } \boldsymbol{a} \in L \textnormal{ and any real number } \alpha. \label{linearfunction_2}
+\end{align}
+
+If the space $L$ is complex than the function value $f(\boldsymbol{a})$ will be a complex number.
+
+Now let's have in $L$ a basis $\mathscr{E}$ and a vector $\boldsymbol{a} \in L$ expressed in this basis:
+
+\begin{align*}
+\boldsymbol{a} = a_1\boldsymbol{e_1} + a_2\boldsymbol{e_2} + ... + a_n\boldsymbol{e_n}.
+\end{align*}
+
+The linear function $f(\boldsymbol{a})$ taking in consideration \eqref{linearfunction_1} and \eqref{linearfunction_2} can be expressed as:
+
+\begin{align*}
+f(\boldsymbol{a}) = a_{1}f(\boldsymbol{e_2}) + a_{2}f(\boldsymbol{e_2}) + ... + a_{n}f(\boldsymbol{e_n}) = a_if(\boldsymbol{e_i}). \label{linear_from0}
+\end{align*}
+
+If we write the coefficients $f(\boldsymbol{e_i})$ as $l_i$ than
+
+\begin{align}
+f(\boldsymbol{a}) = l_{1}a_{1} + l_{2}a_{2} + ... + l_{n}a_{n} = l_{i}a_{i}. \label{linear_from1}
+\end{align}
+
+The expression \eqref{linear_from1} is a polynomial of degree 1 relative to $a_i$ and it is called \emph{linear from}.
+
+Now let's see how the coefficients $l_i$ transforms if we are moving to another base $E^'$. In the base $E^'$ we have:
+
+\begin{align}
+f(\boldsymbol{a}) &= f(a^{'}\boldsymbol{e^{'}_i}) = a^{'}_if(\boldsymbol{e^{'}_i}) = a^{'}_{i}l^{'}_i \label{linear_from_new_basis}
+\end{align}
+
+In accordance with \eqref{eqn:basis_transfromation1} instead of $\boldsymbol{e^{'}_i}$ we write:
+
+\begin{align*}
+f(\boldsymbol{a}) &= a^{'}_if(\boldsymbol{e^{'}_i}) = a^{'}_if(P_{ij}\boldsymbol{e_j}) =  a^{'}_iP_{ij}f(\boldsymbol{e_j}) = a^{'}_iP_{ij}l_j.\label{linear_from0}
+\end{align*}
+
+Comparing with \eqref{linear_from_new_basis} we can see that the expression of transformation for coefficients $l_i$ is:
+
+\begin{align}
+l_i^{'}&= P_{ij}l_j,\label{covariant_transformation}
+\end{align}
+
+i.e. they transform like basis vectors.
+
+It is worth mentioning that the value of function $f(\boldsymbol{a})$ doesn't change if the basis is changed.
+
+\section{Bilinear form}
+
+If for every two vectors $\boldsymbol{a} \in L$ and $\boldsymbol{b} \in L$ we associate a real number, than we are defining a function of two vector arguments $f(\boldsymbol{b}, \boldsymbol{a})$ over the space $L$. The function $f(\boldsymbol{b}, \boldsymbol{a})$ will be called \emph{bilinear} if is is linear in respect to every its argument, i.e:
+
+\begin{align*}
+f(\boldsymbol{a_1} + \boldsymbol{a_2}, \boldsymbol{b}) &= f(\boldsymbol{a_1}, \boldsymbol{b}) + f(\boldsymbol{a_2}, \boldsymbol{b}), \\
+f(\alpha\boldsymbol{a_1}, \boldsymbol{b}) &= \alpha f(\boldsymbol{a}, \boldsymbol{b}), \\
+f(\boldsymbol{a}, \boldsymbol{b_1} + \boldsymbol{b_2}) &= f(\boldsymbol{a}, \boldsymbol{b_1}) + f(\boldsymbol{a}, \boldsymbol{b_2}), \\
+f(\boldsymbol{a}, \alpha\boldsymbol{b}) &= \alpha f(\boldsymbol{a}, \boldsymbol{b}).
+\end{align*}
+
+If we use the above relation than we can expand $f(\boldsymbol{a}, \boldsymbol{b})$ as follows:
+
+\begin{align*}
+f(\boldsymbol{a}, \boldsymbol{b}) = f (a_i\boldsymbol{e_i}, b_j\boldsymbol{e_j}) = a_{i}b_{j}f(\boldsymbol{e_i}, \boldsymbol{e_j}) = l_{ij}a_{i}b_{j} .
+\end{align*}
+
+The expression $l_{ij}a_{i}b_{j}$ is called \emph{bilinear form}. The coefficients $l_{ij}$ are called \emph{coefieints of the bilinear form} and they can be written as a matrix, called the \emph{matrix of the bilinear form}.
+
+Now let's see how the coefficients $l_{ij}$ transform with change of basis. In the new basis
+
+\begin{align}
+f(\boldsymbol{a}, \boldsymbol{b})
+= f (a^{'}_i\boldsymbol{e^{'}_i}, b^{'}_j\boldsymbol{e^{'}_j})
+= a^{'}_i b^{'}_j f(\boldsymbol{e^{'}_i}, \boldsymbol{e^{'}_j})
+= l^{'}_{ij} a^{'}_i b^{'}_j  . \label{bilinear_transform}
+\end{align}
+
+Using \eqref{eqn:basis_transfromation1} we can write:
+
+\begin{align*}
+f(\boldsymbol{a}, \boldsymbol{b}) &= a^{'}_i a^{'}_j f(\boldsymbol{e{'}_i}, \boldsymbol{e^{'}_j})
+= a^{'}_i a^{'}_j f(P_{ip}\boldsymbol{e_p}, P_{jq}\boldsymbol{e_q})
+= a^{'}_i a^{'}_j P_{ip}P_{jq} f(\boldsymbol{e_p}, \boldsymbol{e_q})
+= a^{'}_i a^{'}_j P_{ip}P_{jq} l_{pq}.
+\end{align*}
+
+Comparing with \eqref{bilinear_transform} we arrive to:
+
+\begin{align}
+l^{'}_{ij} &= P_{ip}P_{jq} l_{pq} . \label{bilinear_transform1}
+\end{align}
+
+For every $\boldsymbol{a} \in L$ and $\boldsymbol{b} \in L$ the form $f(\boldsymbol{a}, \boldsymbol{b})$ is symetric if $f(\boldsymbol{a}, \boldsymbol{b}) = f(\boldsymbol{b}, \boldsymbol{a})$, and antisymmetric if $f(\boldsymbol{a}, \boldsymbol{b}) = -f(\boldsymbol{b}, \boldsymbol{a})$.
+Even more, if the form is symetric than $l_{ij} = l_{ji}$, and for antisymetric  $l_{ij} = -l_{ji}$, i.e. the matrix of the bilinear form is symertic or atisymetric.
+
+Again, the value of the bilinear form do not change if the basis is changed.
 
 \section{Quadratic froms}
 
-\section{Sylvester's law of inertia}
+The \emph{quadratic form} is a particular case of the bilinear form where the coefficients matrix is symetric and the arguments are the same, i.e. $f(\boldsymbol{a}, \boldsymbol{a})$ and $l_{ij} = j_{ji}$. The bilinear function thus becomes a function of a single argument $f(\boldsymbol{a})$. Taking in consideration the symetric matrx we can write the from as:
+
+\begin{align*}
+f(\boldsymbol{a}) = l_{11}a_{1}^2 + 2l_{12}a_1a_2 + ... + 2l_{1n}a_1a_n + \\
++ l_{22}a_{2}^2 + 2l_{23}a_2a_3 + ... + 2l_{2n}a_2a_n + \\
++ ................. + \\
++ l_{nn}a_{n}^2
+\end{align*}
+
+If there is basis in $L$ for which all the coefficients $l_{ij}$ of the quadratic form becomes zero for $i \neq j$ than this quadratic form has a \emph{canonical representation}:
+
+\begin{align}
+    f(\boldsymbol{a}) &= l_{ii}a_{1}^2 + l_{22}a_{2}^2 + ... + l_{nn}a_{n}^2 = l_{ii}a_{i}^2.
+\end{align}
+
+Using the linear transformation the quadratic from can take a normal form of the following:
+
+\begin{align}
+    f(\boldsymbol{a}) &= a_{1}^2 + a_{2}^2 + ... + a_{k}^2 - a_{k+1}^2 - ... - a_{r}^2, \textnormal{ where } r <= n.  
+\end{align}
+
+\begin{theorem}
+The number of the positive and negative terms in the quadratic form do not change if the basis is changed.
+\end{theorem}
+
+This theorem is called  \emph{Sylvester's law of inertia} of quadratic forms.
+
+\chapter{Dual Space}
+
+\section{Dual space and reciprocal basis}
+
+Let's for a linear space $L$ the all possible linear forms $f(\boldsymbol{a})$ are defined over the $L$. These linear functions will from a set $L^*$ which also will be a linear space, i.e. a linear space the elements (vectors) of which will be functions. The linear space $L^*$ is called \emph{dual space} and have the same dimension as of $L$.
+
+In the linear space $L$ let's take a basis $E(\boldsymbol{e_1}, \boldsymbol{e_2}, .., \boldsymbol{e_n})$. Because the set $L^*$ is also a linear space we can choose in it a basis too $E^{*}(\boldsymbol{e^{1}}, \boldsymbol{e^{2}}, .., \boldsymbol{e^{n}})$\footnote{We use the upper script to note the basis vectors of the dual space.}. The basis $E$ and $E^{*}$ will have the same number of basis vectors because their linear space are of the same dimension. The difference is that the elements of the basis $E^*$ are functions of elements from $L$, i.e. $E^{*}(\boldsymbol{e^{1}}(\boldsymbol{a}), \boldsymbol{e^{2}}(\boldsymbol{a}), .., \boldsymbol{e^{n}}(\boldsymbol{a}))$.
+
+Now we will choose a base $E^*$ in a such way that:
+
+\begin{align}
+\boldsymbol{e}^{i}(\boldsymbol{e}_j) = \delta^{i}_j. \label{dual_basis}
+\end{align}
+
+The basis $E^{*} \in L^{*}$ which satisfy the relation \eqref{dual_basis} is called \emph{reciprocal basis} or \emph{dual basis} to the basis $E \in L$. This is not the same as reciprocal vectors in the space of geometric vectors where both sets are in the same space. The vectors of $E^{*}$ are in a different space which is a function space isomprphic to $L$. But later we will see in what case these two concepts will mean the same thing.
+
+\section{Transformation of dual basis}
+
+Let's there be a basis $E \in L$ and its reciprocal basis $E^{*} \in L^*$. If we move in $L$ to another basis $E^{'}$ the dual basis also will change to a new one $E^{*}^{'}$. The question is what would be the relation between the basis vectors of $E^{*}$ and $E^{*}^{'}$ if we give the matrix $P_{ij}$ for transformation \eqref{eqn:basis_transfromation1} between the $E^{'}$ and $E$.
+
+Because the dual space $L^*$ is a linear space and because $E^{*}$ is a basis in it the transformation of the basis vectors $E^{*}$ must be in accordance with \eqref{eqn:basis_transfromation1} but with a different matrix $D_{ij}$. Because of the condition \eqref{dual_basis} there must be a relationship between $D_{ij}$ and $P_{ij}$ which we will find out. Thus, for now we can write:
+
+\begin{align*}
+\boldsymbol{e^{i}^{'}} = D_{ij}\boldsymbol{e}^{j}.
+\end{align*}
+
+On the other hand talking in consideration the condition \eqref{dual_basis} we can write
+
+\begin{align}
+\delta^{i}_j = \boldsymbol{e}^{i}^{'}(\boldsymbol{e}^{'}_j) = P_{ik}\boldsymbol{e}^{k}(\boldsymbol{e}^{'}_j)
+= D_{ik}\boldsymbol{e}^{k}(P_{jm}\boldsymbol{e}_m)
+= D_{ik}P_{jm}\boldsymbol{e}^{k}(\boldsymbol{e}_m) = D_{ik}P_{jk}.
+\end{align}
+
+Finally:
+
+\begin{align}
+ D_{ik}P_{jk} = \delta^{i}_j.
+\end{align}
+
+The above relation can be written in the matrix from as
+
+\begin{align}
+ DP^{T} = I.
+\end{align}
+
+And the matrix D is
+
+\begin{align}
+ D = (P^T)^{-1} = Q.
+\end{align}
+
+Thus, the transformation of dual basis will be:
+
+\begin{align}
+\boldsymbol{e^i} = Q_{ij}\boldsymbol{e^{j}}. \label{dual_basis_transfromation}
+\end{align}
+
+Thus, if we are given the transformation matrix $P_{ij}$ for basis vectors from $L$ the transformation of the dual basis vectors will transform the same way as the coordinates of a vectors from $L$, i.e accordingly with \eqref{eqn:transfromation_coordinates1}.
+
+Now if we are given basis $E \in L$ and the matrix $P_{ij}$, we want to see how the coordinates of a vector $\boldsymbol{a} \in L^{*}$ expressed in terms of dual basis $E^*$ changes when the $E^*$ is changed\footnote{Actually $E^*$ is changing due to the change of $E$.}. Let's write the expansion of the vector $\boldsymbol{a}$\ in dual basis $E^*$ and $E^{*}^{'}$:
+
+\begin{align*}
+\boldsymbol{a} &= a_{i}\boldsymbol{e}^{i} = a_{i}^{'}\boldsymbol{e}^{i}^{'}. \label{dual_basis_expantion} \\
+\end{align*}
+
+Using \eqref{dual_basis_transfromation} we can write:
+
+\begin{align*}
+a_{i}^{'}\boldsymbol{e}^{i}^{'} &= a_{i}^{'}Q_{ij}\boldsymbol{e}^{j} = Q_{ji} a_{i}^{'}\boldsymbol{e}^{i}.
+\end{align*}
+
+Taking in consideration \eqref{dual_basis_expantion} we have:
+
+\begin{align*}
+a_{i} = Q_{ji}a_{j}^{'},
+\end{align*}
+
+or in matrix from:
+
+\begin{align*}
+A &= Q^{T}A^{'}, \\
+A^{'} &= (Q^{T})^{-1}A = PA.
+\end{align*}
+
+Thus, finally
+
+\begin{align}
+a_{i}^{'} = P_{ij}a_{j} \label{dual_baisis_coodinates_transfrom}
+\end{align}
+
+We can see that the \eqref{dual_baisis_coodinates_transfrom} is the same as transformation of the basis vectors of $E \in L$, i.e. the same as \eqref{eqn:basis_transfromation1}.
+
+\section{Covariant and contravariant}
+
+In this section we will summarize the low of transformation for basis vectors $E$ and $E^*$, and for the coordinates of the vectors from $L$ and $L^*$. Also we will make some changes in the notations.
+Starting from here the coordinates of a vector in $L$ we will note with superscript $a^1, a^2,...,$, the basis vectors in $L$ we will note with lower script as $\boldsymbol{e_1}, \boldsymbol{e_2},...$.
+When we refer to the dual space $L^*$ than the basis vectors will remain as it was with superscript $\boldsymbol{e^1}, \boldsymbol{e^2},...$, but the components of the vector in $L^*$ will note with lower script as $a_1, a_2,...,$. 
+
+Thus, for the basis $E \in L$ and coordinates of a vector $a \in L$ the low of transformation is
+
+\begin{align}
+\boldsymbol{e}_{i} &= P_{ij}\boldsymbol{e}_{j}, \label{covariant_transformation_low} \\
+a^{i} &= Q_{ij}a^{j}. \label{contravariant_transformation_low}
+\end{align}
+
+The low of transformation for the corresponding dual basis $E^{*} \in L^{*}$ and coordinates of a vector $a \in L^*$ will be:
+
+\begin{align}
+\boldsymbol{e}^{i} &= Q_{ij}\boldsymbol{e}^{j}, \label{dual_contravariant_transformation_low} \\
+a_{i} &= P_{ij}a_{j}. \label{dual_covariant_transformation_low}
+\end{align}
+
+The values which are transformed as \eqref{covariant_transformation_low} are said that they are \emph{covariant} values. Those values which transforms in accordance with the low \eqref{contravariant_transformation_low} are said the they are \emph{contravariant} values. Thus, the  basis vectors from \eqref{covariant_transformation_low} are called covariant basis vectors, and the basis vectors from \eqref{dual_contravariant_transformation_low} are called contravariant basis vectors. The vector components from \eqref{dual_covariant_transformation_low} are called covariant components and the vector components form \eqref{contravariant_transformation_low} are called  contravariant components of the vector.
 
 \chapter{Tensors}
 
