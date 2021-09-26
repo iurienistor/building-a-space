@@ -748,6 +748,7 @@ a_{i}^{'} = P_{ij}a_{j} \label{dual_baisis_coodinates_transfrom}
 We can see that the \eqref{dual_baisis_coodinates_transfrom} is the same as transformation of the basis vectors of $E \in L$, i.e. the same as \eqref{eqn:basis_transfromation1}.
 
 \section{Covariant and contravariant}
+\label{section:covariant_contravariant}
 
 In this section we will summarize the low of transformation for basis vectors $E$ and $E^*$, and for the coordinates of the vectors from $L$ and $L^*$. Also we will make some changes in the notations.
 Starting from here the coordinates of a vector in $L$ we will note with superscript $a^1, a^2,...,$, the basis vectors in $L$ we will note with lower script as $\boldsymbol{e_1}, \boldsymbol{e_2},...$.
@@ -769,9 +770,42 @@ a_{i} &= P_{ij}a_{j}. \label{dual_covariant_transformation_low}
 
 The values which are transformed as \eqref{covariant_transformation_low} are said that they are \emph{covariant} values. Those values which transforms in accordance with the low \eqref{contravariant_transformation_low} are said the they are \emph{contravariant} values. Thus, the  basis vectors from \eqref{covariant_transformation_low} are called covariant basis vectors, and the basis vectors from \eqref{dual_contravariant_transformation_low} are called contravariant basis vectors. The vector components from \eqref{dual_covariant_transformation_low} are called covariant components and the vector components form \eqref{contravariant_transformation_low} are called  contravariant components of the vector.
 
-\chapter{Tensors}
+\chapter{Tensors and Groups}
 
-\chapter{Groups}
+In this chanter we will introduce two concepts tensors and groups which will help us to understand better the subject when we will make another step into building a space. Also, these notions are often used in Physics.
+
+\section{Tensors}
+
+A \emph{tensors} is a set of real numbers which are defined over the space $L$, and which transforms in a certain way when the the basis is changed. These number are called the \emph{coordinates of the tensor}. Usually this set of numbers depending of the \emph{order} of the tensor are presented as a number, vector matrix, or square matrix.
+
+Tensors of 0-order are scalars defined over the space. The coordinates of a scalar is a single number which do not change if the basis is changed.
+
+The 1st-order tensors are a set of numbers defined over the space which can be represented as vector matrix, and which transforms as contravariant or covariant values\footnote{See the section \ref{section:covariant_contravariant} about covariant and contravariant values.}. The coordinates of the 1st-order tensors are noted with superscrip $(\epsilon^1, \epsilon^2,...,\epsilon^n)$ if they transform as contravariant values, and with subscript $(\epsilon_1, \epsilon_2,...,\epsilon_n)$ if they transform as covariant values.
+
+The simplest example of 1st-order tensor are vectors from $L$ or $L^*$. The coordinates of the vectors $(a^1, a^2, ..., a^n)$ transforms under the low \eqref{contravariant_transformation_low}, i.e. as contravariant values. The coordinates of the vector $(a_1, a_2, ..., a_n)$ from the corresponding dual space $L^*$ transform under the low \eqref{dual_covariant_transformation_low}, i.e. as covariant values.
+
+The second order tensor a more interesting because their coordinates ca be represented as a matrix, for example as $T^{ij}$ or $T_{ij}$, and the low of transformation of the coordinates of the 2nd-order tensor are the following:
+
+\begin{align}
+{T^{'ij}} &= Q_{ik}Q_{jl}T^{kl} \\
+T^{'}_{ij} &= P_{ik}P_{jl}T_{kl}.
+\end{align}
+
+But there might also:
+
+\begin{align}
+{T^{i}_{j}}^{'} &= Q_{ik}P_{jl}T^{k}_{l} 
+\end{align}
+
+In general the tensors with order > 2 are sets of number which transform as:
+
+\begin{align}
+T^{'ij...k} &= Q_{ip}Q_{jq}...Q_{ks}T^{pq...s}, \\
+T^{'}_{ij...k} &= P_{ip}P_{jq}...P_{ks}T_{pq...s}, \\
+T^{'ij...k}_{mn...p} &= Q_{iq}Q_{js}...Q_{kr}P_{mv}P_{nu}...P_{pw}T^{qs...r}_{vu...w}.
+\end{align}
+
+\section{Groups}
 
 \chapter{Euclidean space}
 
