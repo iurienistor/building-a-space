@@ -443,6 +443,43 @@ If we expand this vector $\overline{OP}$ in the basis than:
 
 The coefficients $x_1, x_2, ..., x_n$ are called the \emph{affine coordinates} of the point $P$ relative to the affine origin $O$. Thus, the affine system of coordinates always is defined by the chosen point $O$ and the basis $\{\boldsymbol{e_1}, \boldsymbol{e_1}, ..., \boldsymbol{e_n}\}$. Let's note this system as $(O, \boldsymbol{e_1}, \boldsymbol{e_1}, ..., \boldsymbol{e_n})$.
 
+\section{The relationship between affine coordinates and vector coordinates}
+
+Let's have the coordinate system in affine space $(O, \boldsymbol{e_1}, \boldsymbol{e_1}, ..., \boldsymbol{e_n})$ and two points $X$ and $Y$. The corresponding affine coordinates of the points $X$ and $Y$ relative to the origin $O$ will be $\{x_1, x_2, ..., x_n\}$ and $\{y_1, y_2, ..., y_n\}$. Also, the corresponding vector of these two points will be $\boldsymbol{a} = \overline{XY} \in L$. An important point here is that we want to see in affine space what is the relationship between the affine coordinates of the points $X, Y$ and the corresponding coordinates of the vector $\boldsymbol{a} \in L$. In this way we will be able to span the vector $\boldsymbol{a}$ in terms of the basis $\{\boldsymbol{e_1}, \boldsymbol{e_1}, ..., \boldsymbol{e_n}\}$ and the affine coordinates of the points $X, Y$ which marks the beginning and the end of the vector $\boldsymbol{a}$. This relationship would "glue" even more more the vector space $L$ and the set of points $\mathbb{A}$ into a singe space - affine space.
+
+First lets span the vector $\boldsymbol{a}$ in the basis $\{\boldsymbol{e_1}, \boldsymbol{e_1}, ..., \boldsymbol{e_n}\}$:
+
+\begin{align}
+\boldsymbol{a} &= \overline{XY} = a_1\boldsymbol{e_1} + a_2\boldsymbol{e_2} + ... + a_n\boldsymbol{e_n}. \label{affine_coordinates_vector_span}
+\end{align}
+
+On the other hand because of the point $O$ we can write the vector $\overline{XY}$ as
+
+\begin{align*}
+\overline{XY} &= \overline{XO} + \overline{OY} = \overline{OY} - \overline{OX}, \\
+\overline{XY} &= \overline{OY} - \overline{OX} = y_1\boldsymbol{e_1} + y_2\boldsymbol{e_2} + ... + y_n\boldsymbol{e_n} - (x_1\boldsymbol{e_1} + x_2\boldsymbol{e_2} + ... + x_n\boldsymbol{e_n}),
+\end{align*}
+
+and finally
+
+\begin{align}
+\overline{XY} &= (y_1 - x_1)\boldsymbol{e_1} + (y_2 - x_2)\boldsymbol{e_2} + ... + (y_n - x_n)\boldsymbol{e_n}. \label{vector_coordinates_span}
+\end{align}
+
+Comparing \eqref{vector_coordinates_span}  with \eqref{affine_coordinates_vector_span} we can write the coordinates of the vector $\boldsymbol{a}$ as
+
+\begin{align}
+a_i = y_i - x_i. \label{vector_span_as_affine_coordinates}
+\end{align}
+
+According with the definition of the affine coordinates the coordinates $x_i$ and $y_i$ of the vectors $\overline{OY}$ and $\overline{OX}$ are also the coordinates of the points X, and Y. Taking also in consideration \eqref{vector_span_as_affine_coordinates} we can say that \emph{the difference of the affine coordinates of any two points from $\mathbb{A}$ will correspond to the coordinates of a vector from $L$ to which these two points are mapped to}. Thus, the vector $\boldsymbol{a}$ can be spanned as:
+
+\begin{align}
+\boldsymbol{a} = (y_1 - x_1)\boldsymbol{e_1} + (y_2 - x_2)\boldsymbol{e_1} + ... + (y_n - x_n)\boldsymbol{e_n} = (y_i - x_i)\boldsymbol{e_i}. \label{vector_span_affine_coordiantes}
+\end{align}
+
+It is important to note that the relation \eqref{vector_span_affine_coordiantes} make sense only if we have chosen the origin $O$ in the affine space.
+
 \section{Transformation of affine coordinates}
 
 Let's have two points A and B with coordinates ${a_1, a_2, ..., a_n}$ and ${b_1, b_2, ..., b_n}$ than we are interested what will be the coordinates of the vector $\overline{AB}$ expressed as coordinates of the points $A$ and $B$. We can write the following:
@@ -512,7 +549,9 @@ Thus, we arrived to \eqref{affine_origin_move1}.
 
 If the basis is changed and the origin is the same, than in \eqref{general_affine_tr} all coefficients $o_j$ are zero than
 
-\[a^{'}_i = Q_{ij}a_j\],
+\begin{align}
+a^{'}_i = Q_{ij}a_j \label{affine_transform_without_origin}
+\end{align}
 
 thus, we arrived to \eqref{eqn:transfromation_coordinates1}.
 
@@ -787,8 +826,8 @@ The simplest example of 1st-order tensor are vectors from $L$ or $L^*$. The coor
 The second order tensor a more interesting because their coordinates ca be represented as a matrix, for example as $T^{ij}$ or $T_{ij}$, and the low of transformation of the coordinates of the 2nd-order tensor are the following:
 
 \begin{align}
-{T^{'ij}} &= Q_{ik}Q_{jl}T^{kl} \\
-T^{'}_{ij} &= P_{ik}P_{jl}T_{kl}.
+{T^{'ij}} &= Q_{ik}Q_{jl}T^{kl} \\ 
+T^{'}_{ij} &= P_{ik}P_{jl}T_{kl}. \label{2nd_cov_tensor_transform}
 \end{align}
 
 But there might also:
@@ -807,17 +846,210 @@ T^{'ij...k}_{mn...p} &= Q_{iq}Q_{js}...Q_{kr}P_{mv}P_{nu}...P_{pw}T^{qs...r}_{vu
 
 \section{Groups}
 
+A \emph{group} is a set $G$ of elements of any nature for which the notion if identity is given. Also, the operation upon the elements is defined, and this operation is called \emph{multiplication}.
+
+Let's have two elements $a \in G$ and $b \in G$. The multiplication operation maps these two elements $a$ and $b$ to a new element $c \in G$, and this operation is written as:
+
+\[c = ab\].
+
+It is said the element $c$ is the product of $a$ and $b$.
+
+\begin{definition}
+A group is a set $G$ for which the multiplication of elements is defined and for which the following axioms holds:
+
+\begin{axiom}
+For any elements $a, b, c \in G$ 
+
+\[(ab)c = a(bc)\].
+\end{axiom}
+\begin{axiom}
+There exist an element $e \in G$ called the unitary element of the group such that for any element $a \in G$
+
+\[ae = a.\]
+\end{axiom}
+\begin{axiom}
+For any element $a \in G$ there exist an element $x \in G$ such that
+
+\[ax = e.\]
+
+The element $x$ is called the inverse of $a$ and it is noted as $a^{-1}$.
+\end{axiom}
+\end{definition}
+
+A group will be called \emph{abelian group} if for any two elements $a, b \in G$ the following relation holds:
+
+\begin{align*}
+ab = ba.
+\end{align*}
+
+TODO: about group of transfromation.
+
 \chapter{Euclidean space}
 
-\section{Axioms of euclidean space}
+Until this chapter we've made two major steps into building our space. We defined the liner space $L$ which contained only vectors. Than a next major step was by defining the affine space in which a new set $\mathbb{A}$ (the set of points) was added, and the map between $L$ and $\mathbb{A}$. Anyway, in the linear and affine space we could not have the notion of distance and angles in space, i.e. these spaces didn't have a metric. The next step would be to add more to the geometry of the affine space with axioms which will transform it into an euclidean space. The euclidean space can be said that it resembles the properties of our real space.
 
 \section{Inner product}
 
+An euclidean space is an affine space for which along with the axioms I, II, and III it follows also the these additional sets of axioms of (IV):
+
+\begin{axiom}
+Over the linear space $L$ a bilinear form $g(\boldsymbol{a}, \boldsymbol{b})$ if defined. This function $g$ is called the inner product of $\boldsymbol{a}$ and $\boldsymbol{b}$, and it is noted as (\boldsymbol{a}, \boldsymbol{b}). Thus, the function $g$ for every two vectors $\boldsymbol{a}, \boldsymbol{b} \in L$ maps in a certain way a real number, i.e $(\boldsymbol{a}, \boldsymbol{b}) = g(\boldsymbol{a}, \boldsymbol{b})$.
+\end{axiom}
+
+\begin{axiom}
+The inner product is commutative:
+
+\[(\boldsymbol{a}, \boldsymbol{b}) = (\boldsymbol{b}, \boldsymbol{a})\].
+
+This means that the bilinear from $g$ is symmetric.
+\end{axiom}
+
+\begin{axiom}
+The inner product is distributive:
+
+\[(\boldsymbol{a}, \boldsymbol{b} + \boldsymbol{c}) = (\boldsymbol{a}, \boldsymbol{b}) + g(\boldsymbol{a}, \boldsymbol{c}) \].
+
+This actually follows from the definition of bilinear form.
+\end{axiom}
+
+\begin{axiom}
+The inner product is homogene:
+
+\[(\alpha\boldsymbol{a}, \boldsymbol{b}) = \alpha g(\boldsymbol{a}, \boldsymbol{b})\].
+
+This, also, follows from he definition of bilinear form.
+\end{axiom}
+
+\begin{axiom}
+The inner product is nonsingular. If $(\boldsymbol{a}, \boldsymbol{b}) = 0$ for any $b \in L$, than $\boldsymbol{a} = \boldsymbol{0}$.
+
+This means that the bilinear from $g$ is nonsingular.
+\end{axiom}
+
+\begin{axiom}
+For every vector $\boldsymbol{a} \in L$ the inner product
+
+\[(\boldsymbol{a}, \boldsymbol{a}) \geq 0. \]
+\end{axiom}
+
+
+As we can see for the definition of euclidean space we do not add anything new in terms of elements, they remain the same -- the set of vectors $L$ and the set of points $\mathbb{A}$. The new axioms IV are just additional rules over these two sets\footnote{Actually, new rules over the set $L$.} which define the concept of inner product.
+
+According to the definition of bilinear form we can express the inner product as follows:
+
+\begin{align}
+(\boldsymbol{a}, \boldsymbol{b}) = g_{ij}a^jb^j \label{ineer_product_bilinear_from}. 
+\end{align}
+
+\begin{definition}
+Two vectors $\boldsymbol{a}, \boldsymbol{b} \in L$ are said the they are orthogonal if their inner product is zero, i.e.
+
+\[(\boldsymbol{a}, \boldsymbol{b}) = 0.\]
+\end{definition}
+
 \section{Norm of a vector}
+
+\begin{definition}
+The norm of a vector $\boldsymbol{a} \in L$ will be the number
+
+\[\norm{\boldsymbol{a}} = \sqrt{(\boldsymbol{a}, \boldsymbol{a})}.\]
+
+\end{definition}
+
+For the euclidean space the norm of a vector will be a real number\footnote{There other cases when the inner product (\boldsymbol{a}, \boldsymbol{a}) might be not positive, thus the norm is be imaginary. Also, there are cases when the norm of a vector $\norm{\boldsymbol{a}} = 0$ even if the vector $\boldsymbol{a} \neq \boldsymbol{0}$. These kind of vectors are called \emph{izotopic} vectors. About this case we will discuss later in this book}.
+
+The norm of a vector also refers to the length of a vector. Thus, we arrived to the concept of distance in space. Because in affine space every two points $A, B \in \mathbb{A}$ a vector is associated, than the distance between the points $A$ and $B$ will be associated with the norm (length) of the vector.
+
+Because the inner product is bilinear form $g$, thus, for the cases when we have the inner product (\boldsymbol{a}, \boldsymbol{a}) the bilinear form $g$ will become a quadratic from.
+
+The quadratic form $\norm{\boldsymbol{a}}^2 = (\boldsymbol{a}, \boldsymbol{a}) = g(\boldsymbol{a}, \boldsymbol{a})$ is called the \emph{metric form} of the space. In accordance with the definition of the quadratic from the metric form can be written as
+
+\begin{align}
+\norm{\boldsymbol{a}}^2 = g_{ij}a^ia^j. \label{matric_quadratic_from}  
+\end{align}
 
 \section{Ortonormal basis}
 
 \section{The metric tensor}
+
+According to \eqref{bilinear_transform1} the coefficients $g_{ij}$ of the bilinear from \eqref{ineer_product_bilinear_from} and the quadratic from \eqref{matric_quadratic_from} transforms the same way as the coordinates of a second order tensor \eqref{2nd_cov_tensor_transform}. Thus, the coefficients $g_{ij}$ will define a second order covariant tensor, called the \emph{metric tensor} of the space. This tensor is noted as $g$.
+
+Let's have a inner product of two vectors $(\boldsymbol{a}, \boldsymbol{b})$. Also, let's have a basis $E$. The inner product than can be expressed as:
+
+\begin{align}
+(\boldsymbol{a}, \boldsymbol{b}) = (a^i \boldsymbol{e_i}, b^j\boldsymbol{e_j}) = a^{i}b^{j} (\boldsymbol{e_i}, \boldsymbol{e_j}) = g_{ij} a^{i}b^{j}. \label{inner_and_metrics}
+\end{align}
+
+We can see the if we have a basis E, we also can define the metric of the tensor as:
+
+\[g_{ij} = (\boldsymbol{e_i}, \boldsymbol{e_j})\].
+
+Since the bilinear form (\boldsymbol{a}, \boldsymbol{b}) which define the inner product is symmetric also the metric tensor $g$ is symmetric.
+
+Also, we can see from \eqref{inner_and_metrics} that if we are given the metric tensor $g$ of the space, than the inner product will be defined too. From the inner product also we can define the norm, i.e. the distance in space. Thus, the metric tensor of the space is enough to define the inner product and the distance in space, i.e. the metrics of the space. According to this in order to have an euclidean space we define a metric tensor $g$ in the affine space\footnote{In general the metric tensor $g$ will make an affine space into a \emph{metric space}. But if $g$ is defined in a such way that the quadratic form of the norm also is positive, than we are defining an euclidean space.}.
+
+\section{Distance in space}
+
+We would like to see how the introduction in the affine space of the metric tensor $g$ (which transforms the affine space into an euclidean one) defines the concept of distance in space. The structure of the euclidean space consist of the set $L$ of vectors and the set of points $\mathbb{A}$ which maps to vectors - this is inherited from he affine space. Thus, in euclidean space we have points, and if we have points it is naturally to ask what is the distance between these points.
+
+Let's have two points $X$ and $Y$. Also, let's have a origin point $O$\footnote{This origin is the same origin from the affine space, i.e. euclidean space inherits this concept.}. The coordinates of the points $X$ and $Y$ will be ${x^1, x^2, ..., x^n}$ and ${y^1, y^2, ..., y^n}$. Also, these two points will define us a vector $\overline{XY}$. If we introduce the metric tensor $g$, than we would define the norm of the vector. In acco
+
+\begin{align}
+\norm{\overline{XY}} = \sqrt{(\overline{XY}, \overline{XY})}.  
+\end{align}
+
+Because $(\overline{XY}, \overline{XY})$ also is the metric quadratic from than in accordance with \eqref{matric_quadratic_from} and also \eqref{vector_span_affine_coordiantes} we can can write:
+
+\begin{align}
+(\overline{XY}, \overline{XY}) &=  g_{ij}(y^i - x^i) (y^j - x^j),
+\end{align}
+
+and the norm will be
+
+\begin{align}
+\norm{\overline{XY}} &= \sqrt{g_{ij}(y^{i} - x^{i})(y^{j} - x^{j})}. \label{distnace_in_space}
+\end{align}
+
+We know that the coefficients are also the coordinates of the metric tensor g. Because the norm of the vector also is defined as the length of the vector the relation \eqref{distnace_in_space} shows us the relationship between the coordinates the points $X$ and $Y$ an the vector length. In accordance with the mapping between vectors set and points set stated in the axioms of affine space the relation \eqref{distnace_in_space} also defines the relationship between the points $X$ and $Y$, which can be defined as distance between points.
+
+For example, in a real space the set $\mathbb{A}$ will correspond to points in space, and the relation \eqref{distnace_in_space} along with the relationship between points imposed by the mapping to vectors will define the how these points must be arranged in space.
+
+Now let's see how the distance in space changes if we change the system of coordinates, i.e. we move from $(O, \boldsymbol{e_1}, \boldsymbol{e_2}, ..., \boldsymbol{e_n})$ to $(O, \boldsymbol{e_1}^{'}, \boldsymbol{e_2}^{'}, ..., \boldsymbol{e_n}^{'})$\footnote{Not to complicate the relations we will not move the origin of the coordinates $O$.}.
+
+In the new system of coordinates we can write \eqref{distnace_in_space} as
+
+\begin{align}
+\norm{\overline{XY}}
+&= \sqrt{g^{'}_{ij} (y^{'}^{i} - x^{'}^{i}) (y^{'}^{j} - x^{'}^{j})}. \label{distnace_in_space_prime}
+\end{align}
+
+In accordance with \eqref{2nd_cov_tensor_transform} and \eqref{affine_transform_without_origin} we can write
+
+\begin{align}
+\norm{\overline{XY}}
+&= \sqrt{g^{'}_{ij} (y^{'}^{i} - x^{'}^{i}) (y^{'}^{j} - x^{'}^{j})}
+= \sqrt{P_{ik} P_{jl} g_{kl} Q_{im}(y^{m} - x^{m}) Q_{in}(y^{n} - x^{n})},\\
+\norm{\overline{XY}}
+&= \sqrt{P_{ik} Q_{im} P_{jl} Q_{in} g_{kl}(y^{m} - x^{m})(y^{n} - x^{n})}.
+\end{align}
+
+Taking in consideration \eqref{xxx} we can write
+
+\begin{align}
+\norm{\overline{XY}}
+&= \sqrt{\delta^k_{m} \delta^l_{n} g_{kl}(y^{m} - x^{m})(y^{n} - x^{n})}
+= \sqrt{g_{kl}(y^{k} - x^{k})(y^{l} - x^{l})}.
+\end{align}
+
+Thus, we conclude that:
+
+\begin{align}
+\norm{\overline{XY}}
+&= \sqrt{g^{'}_{ij} (y^{'}^{i} - x^{'}^{i}) (y^{'}^{j} - x^{'}^{j})}
+= \sqrt{g_{ij} (y^{i} - x^{i}) (y^{j} - x^{j}).} \label{constant_distance}
+\end{align}
+
+From \eqref{constant_distance} we can see that the distance between points $X$ and $Y$ is constant, i.e. it doesn't change if the system of coordinates changes.
 
 \section{Metrical isophormism}
 
