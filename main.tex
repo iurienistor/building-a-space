@@ -7,8 +7,8 @@
 \usepackage{amssymb}
 \usepackage{draftwatermark}
 \SetWatermarkText{Draft}
-\SetWatermarkScale{5}
-\SetWatermarkColor[gray]{0.95}
+\SetWatermarkScale{4}
+\SetWatermarkColor[gray]{0.8}
 \usepackage{physics}{}
 
 \newtheorem{theorem}{Theorem}
@@ -45,7 +45,7 @@ $\{a, b, c, d...\}$ -- a set with elements $a, b, c, d, ...$
 
 \chapter{Linear spaces}
 
-In order to build a space we will start with the most abstract thing we can imagine - a \emph{set}, and let's call it $L$. The elements of the set $L$ can be of any nature: numbers, vectors, functions, anything, and named with letters $\{\textbf{a}, \textbf{b}, \textbf{c}, \textbf{d}...\}$. It is better we for now to try refrain from imagining them be something concrete, for example, as vectors we know from classic geometry books. Let pretend we don't know what they are, what to do with them, and how they behave.
+In order to "build" a space we will start with the most abstract thing we can imagine - a \emph{set}, and let's call it $L$. The elements of the set $L$ can be of any nature: numbers, vectors, functions, anything, and named with letters $\{\textbf{a}, \textbf{b}, \textbf{c}, \textbf{d}...\}$. It is better we for now to try refrain from imagining them be something concrete, for example, as vectors we know from classic geometry books. Let pretend we don't know what they are, what to do with them, and how they behave.
 
 \begin{section}{Axioms of linear space}
 
@@ -224,7 +224,7 @@ Also, it follows that all the coordinates of the null element are zero, i.e:
 
 \section{Isomorphism}
 
-Let's have linear spaces $L$ and $L^'$. The elements of $L$ and $L^'$ might be of the same or different nature \footnote{For example, $L(\boldsymbol{v_1}, \boldsymbol{v_2}, \boldsymbol{v_3},...)$ might be a space of vectors and $L^{'}(f_1(x), f_2(x), f_3(x) ...)$ a space of functions of a single variable.}. Also, there a bidirectional unique mapping between the elements $L$ and ${L^{'}}$, i.e. for every element $\boldsymbol{a}$ from $L$ we assign an element $\boldsymbol{a^{'}}$ from $L$ and the opposite. The mapping is done in a such way that the the sum of any two elements $\boldsymbol{a}$ and $\boldsymbol{b}$ from $L$ maps to the sum of $\boldsymbol{a^{'}}$ and $\boldsymbol{b^{'}}$ from $L^{'}$, and the multiplication of any element $\boldsymbol{a}$ from $L$ to a real number $\alpha$ maps to the multiplication of $\boldsymbol{a^{'}}$ from $L^{'}$ to the same number, i.e.
+Let's have linear spaces $L$ and $L^'$. The elements of $L$ and $L^'$ might be of the same or different nature \footnote{For example, $L(\boldsymbol{v_1}, \boldsymbol{v_2}, \boldsymbol{v_3},...)$ might be a space of vectors and $L^{'}(f_1(x), f_2(x), f_3(x) ...)$ a space of functions of a single variable.}. Also, there a bidirectional unique mapping between the elements $L$ and ${L^{'}}$, i.e. for every element $\boldsymbol{a}$ from $L$ we assign an element $\boldsymbol{a^{'}}$ from $L$ and the opposite. The mapping is done in a such way that the sum of any two elements $\boldsymbol{a}$ and $\boldsymbol{b}$ from $L$ maps to the sum of $\boldsymbol{a^{'}}$ and $\boldsymbol{b^{'}}$ from $L^{'}$, and the multiplication of any element $\boldsymbol{a}$ from $L$ to a real number $\alpha$ maps to the multiplication of $\boldsymbol{a^{'}}$ from $L^{'}$ to the same number, i.e.
 
 \begin{equation}
 \label{eqn:isomorphism1}
@@ -280,7 +280,7 @@ Another trivial example of linear subspace will be the null element $\boldsymbol
 
 \subsection{Einstein notation}
 
-Before starting the subject of linear transformation let's define some notations which are called Einstein summation convention\footnote{This kind of notation is often used in Physics. It was introduced by Albert Einstein in 1916.}. The reason of introduction of such notation is because we can write mathematical formulas in a more efficient way\footnote{For example, the Physics equations will look more simple and clear.}. Let's write some examples by defing the notation.
+Before starting the subject of linear transformation let's define some notations which are called Einstein summation convention\footnote{This kind of notation is often used in Physics. It was introduced by Albert Einstein in 1916.}. The reason of introduction of such notation is because we can write mathematical formulas in a more efficient way\footnote{For example, the Physics equations will look more simple and clear.}. Let's write some examples.
 
 \begin{equation}
 \label{eqn:enstein_notation1}
@@ -988,68 +988,53 @@ Since the bilinear form (\boldsymbol{a}, \boldsymbol{b}) which define the inner 
 
 Also, we can see from \eqref{inner_and_metrics} that if we are given the metric tensor $g$ of the space, than the inner product will be defined too. From the inner product also we can define the norm, i.e. the distance in space. Thus, the metric tensor of the space is enough to define the inner product and the distance in space, i.e. the metrics of the space. According to this in order to have an euclidean space we define a metric tensor $g$ in the affine space\footnote{In general the metric tensor $g$ will make an affine space into a \emph{metric space}. But if $g$ is defined in a such way that the quadratic form of the norm also is positive, than we are defining an euclidean space.}.
 
-\section{Distance in space}
+\section{Distance in Space}
 
-We would like to see how the introduction in the affine space of the metric tensor $g$ (which transforms the affine space into an euclidean one) defines the concept of distance in space. The structure of the euclidean space consist of the set $L$ of vectors and the set of points $\mathbb{A}$ which maps to vectors - this is inherited from he affine space. Thus, in euclidean space we have points, and if we have points it is naturally to ask what is the distance between these points.
+We would like to explore how the introduction of the metric tensor $g$ in the affine space transforms it into an Euclidean space and thus defines the concept of distance in space. The structure of the Euclidean space consists of a set of vectors $L$ and a set of points $\mathbb{A}$, which map to vectors. This mapping is inherited from the affine space. Hence, in the Euclidean space, we have points, and it is natural to ask what the distance between these points is.
 
-Let's have two points $X$ and $Y$. Also, let's have a origin point $O$\footnote{This origin is the same origin from the affine space, i.e. euclidean space inherits this concept.}. The coordinates of the points $X$ and $Y$ will be ${x^1, x^2, ..., x^n}$ and ${y^1, y^2, ..., y^n}$. Also, these two points will define us a vector $\overline{XY}$. If we introduce the metric tensor $g$, than we would define the norm of the vector. In acco
-
-\begin{align}
-\norm{\overline{XY}} = \sqrt{(\overline{XY}, \overline{XY})}.  
-\end{align}
-
-Because $(\overline{XY}, \overline{XY})$ also is the metric quadratic from than in accordance with \eqref{matric_quadratic_from} and also \eqref{vector_span_affine_coordiantes} we can can write:
+Let's consider two points $X$ and $Y$, and an origin point $O$\footnote{This origin is the same origin from the affine space, i.e., the Euclidean space inherits this concept.}. The coordinates of points $X$ and $Y$ are ${x^1, x^2, ..., x^n}$ and ${y^1, y^2, ..., y^n}$, respectively. These two points also define a vector $\overline{XY}$. Upon introducing the metric tensor $g$, we can define the norm of this vector as follows:
 
 \begin{align}
-(\overline{XY}, \overline{XY}) &=  g_{ij}(y^i - x^i) (y^j - x^j),
+\norm{\overline{XY}} = \sqrt{(\overline{XY}, \overline{XY})}.
 \end{align}
 
-and the norm will be
+Since $(\overline{XY}, \overline{XY})$ is also the metric quadratic form, in accordance with \eqref{matric_quadratic_from} and \eqref{vector_span_affine_coordiantes}, we can write:
 
 \begin{align}
-\norm{\overline{XY}} &= \sqrt{g_{ij}(y^{i} - x^{i})(y^{j} - x^{j})}. \label{distnace_in_space}
+(\overline{XY}, \overline{XY}) &= g_{ij}(y^i - x^i) (y^j - x^j),
 \end{align}
 
-We know that the coefficients are also the coordinates of the metric tensor g. Because the norm of the vector also is defined as the length of the vector the relation \eqref{distnace_in_space} shows us the relationship between the coordinates the points $X$ and $Y$ an the vector length. In accordance with the mapping between vectors set and points set stated in the axioms of affine space the relation \eqref{distnace_in_space} also defines the relationship between the points $X$ and $Y$, which can be defined as distance between points.
-
-For example, in a real space the set $\mathbb{A}$ will correspond to points in space, and the relation \eqref{distnace_in_space} along with the relationship between points imposed by the mapping to vectors will define the how these points must be arranged in space.
-
-Now let's see how the distance in space changes if we change the system of coordinates, i.e. we move from $(O, \boldsymbol{e_1}, \boldsymbol{e_2}, ..., \boldsymbol{e_n})$ to $(O, \boldsymbol{e_1}^{'}, \boldsymbol{e_2}^{'}, ..., \boldsymbol{e_n}^{'})$\footnote{Not to complicate the relations we will not move the origin of the coordinates $O$.}.
-
-In the new system of coordinates we can write \eqref{distnace_in_space} as
+and the norm becomes:
 
 \begin{align}
-\norm{\overline{XY}}
-&= \sqrt{g^{'}_{ij} (y^{'}^{i} - x^{'}^{i}) (y^{'}^{j} - x^{'}^{j})}. \label{distnace_in_space_prime}
+\norm{\overline{XY}} &= \sqrt{g_{ij}(y^{i} - x^{i})(y^{j} - x^{j})}. \label{distance_in_space}
 \end{align}
 
-In accordance with \eqref{2nd_cov_tensor_transform} and \eqref{affine_transform_without_origin} we can write
+The coefficients in this equation are the coordinates of the metric tensor $g$. Since the norm of the vector is also defined as its length, equation \eqref{distance_in_space} shows us the relationship between the coordinates of the points $X$ and $Y$ and the length of the vector. In accordance with the mapping between the vector set and the point set stated in the axioms of the affine space, equation \eqref{distance_in_space} also defines the relationship between points $X$ and $Y,$ which can be defined as the distance between them.
+
+For example, in a real space, the set $\mathbb{A}$ will correspond to points in space, and equation \eqref{distance_in_space} along with the relationship between points imposed by the mapping to vectors will define how these points must be arranged in space.
+
+Let's now see how the distance in space changes if we change the system of coordinates, i.e., move from $(O, \boldsymbol{e_1}, \boldsymbol{e_2}, ..., \boldsymbol{e_n})$ to $(O, \boldsymbol{e_1}^{'}, \boldsymbol{e_2}^{'}, ..., \boldsymbol{e_n}^{'})$\footnote
 
 \begin{align}
-\norm{\overline{XY}}
-&= \sqrt{g^{'}_{ij} (y^{'}^{i} - x^{'}^{i}) (y^{'}^{j} - x^{'}^{j})}
-= \sqrt{P_{ik} P_{jl} g_{kl} Q_{im}(y^{m} - x^{m}) Q_{in}(y^{n} - x^{n})},\\
-\norm{\overline{XY}}
-&= \sqrt{P_{ik} Q_{im} P_{jl} Q_{in} g_{kl}(y^{m} - x^{m})(y^{n} - x^{n})}.
+\norm{\overline{XY}} &= \sqrt{\delta^{k}{m} \delta^{l}{n} P_{ik} Q_{im} P_{jl} Q_{in} g_{kl}(y^{m} - x^{m})(y^{n} - x^{n})} \
+&= \sqrt{P_{ik} Q_{im} \delta^{m}{n} P{jl} Q_{in} g_{kl}(y^{m} - x^{m})(y^{n} - x^{n})} \
+&= \sqrt{P_{ik} Q_{im} P_{jl} Q_{in} g_{mn}(y^{m} - x^{m})(y^{n} - x^{n})}.
 \end{align}
 
-Taking in consideration \eqref{xxx} we can write
+In the above expression, $\delta^{m}_{n}$ is the Kronecker delta symbol, which takes the value 1 if $m=n$ and 0 otherwise.
+
+Now, we can recognize the right-hand side of Equation (10) as the metric quadratic form written in the new coordinate system $(O, \boldsymbol{e_1}^{'}, \boldsymbol{e_2}^{'}, ..., \boldsymbol{e_n}^{'})$. This can be seen by comparing Equation (10) to Equation (3). Hence, we have
 
 \begin{align}
-\norm{\overline{XY}}
-&= \sqrt{\delta^k_{m} \delta^l_{n} g_{kl}(y^{m} - x^{m})(y^{n} - x^{n})}
-= \sqrt{g_{kl}(y^{k} - x^{k})(y^{l} - x^{l})}.
+\norm{\overline{XY}} &= \sqrt{g^{'}_{mn} (y^{m} - x^{m})(y^{n} - x^{n})}. \label{distance_in_new_coordinate_system}
 \end{align}
 
-Thus, we conclude that:
+Therefore, the distance between the two points $X$ and $Y$ in the new coordinate system $(O, \boldsymbol{e_1}^{'}, \boldsymbol{e_2}^{'}, ..., \boldsymbol{e_n}^{'})$ is given by Equation (11).
 
-\begin{align}
-\norm{\overline{XY}}
-&= \sqrt{g^{'}_{ij} (y^{'}^{i} - x^{'}^{i}) (y^{'}^{j} - x^{'}^{j})}
-= \sqrt{g_{ij} (y^{i} - x^{i}) (y^{j} - x^{j}).} \label{constant_distance}
-\end{align}
+The above discussion shows that the distance between two points in space remains unchanged under a coordinate transformation, i.e., it is invariant. This is a desirable property, as it should not depend on the choice of the coordinate system. The metric tensor provides a means to measure the distance between two points in space in a way that is invariant under coordinate transformations.
 
-From \eqref{constant_distance} we can see that the distance between points $X$ and $Y$ is constant, i.e. it doesn't change if the system of coordinates changes.
+This concludes our discussion on how the introduction of the metric tensor $g$ in the affine space defines the concept of distance in space.
 
 \section{Metrical isophormism}
 
@@ -1061,17 +1046,34 @@ From \eqref{constant_distance} we can see that the distance between points $X$ a
 
 \section{The group of euclidean rotation}
 
-\chapter{Minkowski space}
+\chapter{Pseudo-euclidean space}
 
-\section{Spheres}
+In the last chapter we've put the past bricks into building a space that can be said that has the same geometric properties as our real world space. Because of this it can by used in Physics as a mathematical tool to describe our real space, and write physical laws with it. But if we would limit us only to to euclidean space than from the point view of Physics it can describe only the classical interpretation of our space which is an approximation real space we are living. To describe even more accurate we need for a mathematical space which is euclidean, but has spacial defined metric, i.e. the metric tenor is defined as follows:
 
-\cite{rosenfeld_noneucldean}, p.524
+\[g_{ij} = (\boldsymbol{e_i}, \boldsymbol{e_j})\], where (\boldsymbol{e_0}, \boldsymbol{e_0}) = -1, and, (\boldsymbol{e_j}, \boldsymbol{e_i}) = 0 for {i != j} \]
 
-\section{Angles between vectors}
+An euclidean space which a such metric will become a so-called pseudo-euclidean space of n dimensions\footnote{More exactly it a pseudo-euclidean space of index 1. This is because due to the metric tensor metric quadratic form is of the from }. Thus, the Special Relativity theory says that our space differs from the euclidean space and to describe it more accurately we need to use the pseudo-euclidean space from mathematics. Our classical interpretation of the space usually is described mathematically by an euclidean  space with 3 dimension. The Special Relativity which describe even more accurate our space needs to use the the pseudo-euclidean space with dimension 4. Later we will see that one of the dimension of pseudo-euclidean used in Special Relativity is labeled as time, but this do not change things and for now we will explore mathematically some interesting and strange properties of a such space which reflates the same behaviour our real space describe by Special Theory Relativity.
+
+\section{Pseudo-euclidean space of two dimensions}
+
+- Diagram, asymtots, etc.
+
+- Rashevsky, p 176, sec 44
+
+- Rozendorn , p 310 (maybe also write about hyperbolic transformation, see p 316)
+
+- Angle between vectors
+
+- Triangle inequality
+
+- Isotopic vectors}
+
+- Transformation in pseudo-euclidean space
+
+\section{Minkowski spacetime}
 
 \cite{rosenfeld_noneucldean}, p.525
 
-\section{Spacetime}
 
 \begin{thebibliography}{}
 \bibitem{efimov}
